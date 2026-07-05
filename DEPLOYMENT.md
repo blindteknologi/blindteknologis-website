@@ -14,9 +14,12 @@ The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml
 
 ## Custom Domain — blindteknologis.com
 
-To serve the site at `https://blindteknologis.com`, configure DNS at your domain registrar.
+**Status:** Verified and active at `https://blindteknologis.com`
 
-### Required DNS Records
+The site builds with `base: '/'` and deploys via GitHub Actions on every push to `main`.
+`public/CNAME` contains `blindteknologis.com`.
+
+### DNS Records (reference)
 
 | Type  | Name | Value                              | TTL  |
 |-------|------|------------------------------------|------|
@@ -46,25 +49,12 @@ To serve the site at `https://blindteknologis.com`, configure DNS at your domain
 
 ### DNS Propagation
 
-DNS changes can take up to 48 hours to propagate globally. Use `dig blindteknologis.com` or an online DNS checker to verify.
-
-### Build Configuration for Custom Domain
-
-When using a custom domain at the repository root (not a project subdirectory), update `vite.config.ts`:
-
-```ts
-base: '/',
-```
-
-The GitHub Actions workflow sets `GITHUB_PAGES=true` which uses `/blindteknologis-website/` as the base path for the default GitHub Pages URL. For custom domain deployment, either:
-
-- Remove the `GITHUB_PAGES` env var from the workflow, or
-- Set `base: '/'` unconditionally once the custom domain is active
+DNS changes can take up to 48 hours to propagate globally.
 
 ## Local Preview of Production Build
 
 ```bash
-GITHUB_PAGES=true npm run build
+npm run build
 npm run preview
 ```
 
