@@ -14,10 +14,9 @@ The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml
 
 ## Custom Domain — blindteknologis.com
 
-**Status:** Verified and active at `https://blindteknologis.com`
+**GitHub deployment:** Live at `https://blindteknologis.com` (GitHub Pages, `base: '/'`).
 
-The site builds with `base: '/'` and deploys via GitHub Actions on every push to `main`.
-`public/CNAME` contains `blindteknologis.com`.
+If the domain still shows the old Google Site (`sites.google.com/blindteknologis.com/blindteknologis`), see **[DNS-FIX.md](./DNS-FIX.md)** — DNS or Squarespace forwarding must be updated; the site build is already deployed.
 
 ### DNS Records (reference)
 
