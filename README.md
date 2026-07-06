@@ -1,14 +1,6 @@
-# Blind Teknologis Website
+# Blind Teknologis
 
-Official company website for [Blind Teknologis](https://blindteknologis.com) — the automotive intelligence company behind [TekBox](https://github.com/blindteknologi/TekBox).
-
-## Stack
-
-- React 19
-- Vite 8
-- TypeScript
-- Tailwind CSS 4
-- React Router
+Enterprise marketing website for [Blind Teknologis](https://blindteknologis.com).
 
 ## Development
 
@@ -21,22 +13,12 @@ npm run dev
 
 ```bash
 npm run build
-npm run preview
 ```
 
-## Lint & Format
+## Archive
 
-```bash
-npm run lint
-npm run format
-```
+Previous prototype preserved on branch `archive/website-v2`.
 
 ## Deployment
 
-This site deploys automatically to GitHub Pages on push to `main` via GitHub Actions.
-
-For custom domain setup, see [DEPLOYMENT.md](./DEPLOYMENT.md).
-
-## License
-
-© 2026 Blind Teknologis. All rights reserved.
+Deploys to GitHub Pages on push to `main` via GitHub Actions.

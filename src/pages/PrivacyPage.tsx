@@ -1,47 +1,32 @@
-﻿import { PageHeader } from '../components/PageHeader'
-import { SEO } from '../components/SEO'
+﻿import { SEO } from '../components/SEO'
 import { CONTACT_EMAILS } from '../lib/site'
 
 export function PrivacyPage() {
   return (
     <>
       <SEO title="Privacy Policy" path="/privacy" />
-      <PageHeader eyebrow="Legal" title="Privacy Policy" description="Last updated: July 6, 2026" />
-
-      <section className="section-padding">
-        <div className="mx-auto max-w-3xl space-y-8 text-sm leading-relaxed text-white/50">
+      <section className="section-pad mx-auto max-w-2xl">
+        <p className="text-xs font-medium tracking-[0.25em] text-accent uppercase">Legal</p>
+        <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-white">
+          Privacy Policy
+        </h1>
+        <p className="mt-2 text-sm text-white/40">Last updated: July 6, 2026</p>
+        <div className="mt-10 space-y-6 text-sm leading-relaxed text-text-secondary">
           <p>
             Blind Teknologis respects your privacy. This policy describes how we handle
-            information when you visit our website or contact us.
+            information when you visit our website or submit an enterprise access request.
           </p>
-          <div>
-            <h2 className="text-lg font-medium text-white">Information we collect</h2>
-            <p className="mt-3">
-              We may collect information you voluntarily provide, such as your name, email
-              address, company name, and message content when you contact us. We may also
-              collect standard website analytics such as browser type, pages visited, and
-              referral source.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-lg font-medium text-white">How we use information</h2>
-            <p className="mt-3">
-              We use contact information to respond to inquiries and communicate about
-              services you request. We do not sell personal information.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-lg font-medium text-white">Contact</h2>
-            <p className="mt-3">
-              Privacy questions:{' '}
-              <a
-                className="text-white/80 transition-colors hover:text-white"
-                href={`mailto:${CONTACT_EMAILS.privacy}`}
-              >
-                {CONTACT_EMAILS.privacy}
-              </a>
-            </p>
-          </div>
+          <p>
+            We may collect information you voluntarily provide, including your name, corporate
+            email address, company name, and message content. We do not sell personal
+            information.
+          </p>
+          <p>
+            Privacy inquiries:{' '}
+            <a href={`mailto:${CONTACT_EMAILS.privacy}`} className="text-white hover:text-accent">
+              {CONTACT_EMAILS.privacy}
+            </a>
+          </p>
         </div>
       </section>
     </>

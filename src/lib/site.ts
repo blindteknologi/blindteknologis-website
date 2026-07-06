@@ -1,12 +1,10 @@
 ﻿export const SITE_NAME = 'Blind Teknologis'
-export const SITE_TAGLINE = 'Enterprise Software for Automotive Service'
+
 export const SITE_DESCRIPTION =
-  'Blind Teknologis develops intelligent workflow software that helps automotive service businesses operate more efficiently through automation, consistency, and intelligent business processes.'
+  'Blind Teknologis develops enterprise workflow infrastructure for modern automotive service platforms, reducing administrative overhead while improving operational consistency and automation.'
 
 export const CONTACT_EMAILS = {
   info: 'info@blindteknologis.com',
-  support: 'support@blindteknologis.com',
-  sales: 'sales@blindteknologis.com',
   privacy: 'privacy@blindteknologis.com',
 } as const
 
