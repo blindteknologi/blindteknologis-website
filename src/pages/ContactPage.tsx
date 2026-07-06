@@ -1,53 +1,55 @@
-﻿import { Mail, MapPin } from 'lucide-react'
-import { PageHeader } from '../components/PageHeader'
+﻿import { PageHeader } from '../components/PageHeader'
 import { SEO } from '../components/SEO'
 import { CONTACT_EMAILS } from '../lib/site'
 
 const contacts = [
-  { label: 'General', email: CONTACT_EMAILS.info },
+  { label: 'General Inquiries', email: CONTACT_EMAILS.info },
   { label: 'Support', email: CONTACT_EMAILS.support },
   { label: 'Sales', email: CONTACT_EMAILS.sales },
-  { label: 'API', email: CONTACT_EMAILS.api },
   { label: 'Privacy', email: CONTACT_EMAILS.privacy },
 ]
 
 export function ContactPage() {
   return (
     <>
-      <SEO title="Contact" path="/contact" description="Contact Blind Teknologis." />
+      <SEO
+        title="Contact"
+        path="/contact"
+        description="Contact Blind Teknologis for inquiries about our enterprise software for automotive service."
+      />
       <PageHeader
         eyebrow="Contact"
         title="Get in touch"
-        description="Reach the Blind Teknologis team for product questions, early access, integrations, or privacy inquiries."
+        description="We welcome conversations with automotive service businesses exploring a better way to operate."
       />
 
       <section className="section-padding">
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2">
-          <div className="surface-card p-8">
+          <div className="glass-panel rounded-2xl p-10">
             <h2 className="text-lg font-medium text-white">Email</h2>
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-8 space-y-6">
               {contacts.map((item) => (
-                <li key={item.email} className="flex items-start gap-3 text-sm">
-                  <Mail size={16} className="mt-0.5 text-zinc-500" />
-                  <div>
-                    <p className="text-zinc-500">{item.label}</p>
-                    <a href={`mailto:${item.email}`} className="text-zinc-200 hover:text-white">
-                      {item.email}
-                    </a>
-                  </div>
+                <li key={item.email}>
+                  <p className="text-xs tracking-wide text-white/35 uppercase">
+                    {item.label}
+                  </p>
+                  <a
+                    href={`mailto:${item.email}`}
+                    className="mt-1 inline-block text-sm text-white/80 transition-colors hover:text-white"
+                  >
+                    {item.email}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="surface-card p-8">
+          <div className="glass-panel rounded-2xl p-10">
             <h2 className="text-lg font-medium text-white">Location</h2>
-            <div className="mt-6 flex items-start gap-3 text-sm text-zinc-300">
-              <MapPin size={16} className="mt-0.5 text-zinc-500" />
-              <p>United States</p>
-            </div>
-            <p className="mt-8 text-sm leading-relaxed text-zinc-500">
-              For early access requests, include your shop name, management system, and the workflows you want to improve.
+            <p className="mt-8 text-sm text-white/60">United States</p>
+            <p className="mt-10 text-sm leading-relaxed text-white/40">
+              Include your company name and a brief description of your operation when
+              reaching out. We respond to every inquiry.
             </p>
           </div>
         </div>

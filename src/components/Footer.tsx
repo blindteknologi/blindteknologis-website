@@ -1,60 +1,48 @@
 ﻿import { Link } from 'react-router-dom'
-import { assetUrl, GITHUB_URL, SITE_NAME } from '../lib/site'
+import { assetUrl, SITE_NAME } from '../lib/site'
 
 const footerLinks = [
-  { to: '/products', label: 'Products' },
-  { to: '/integrations', label: 'Integrations' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
   { to: '/privacy', label: 'Privacy' },
   { to: '/terms', label: 'Terms' },
 ]
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800/60 bg-[#09090b]">
-      <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div className="space-y-4">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <img src={assetUrl('logo.png')} alt={SITE_NAME} className="h-7 w-auto opacity-90" />
-              <span className="text-sm font-medium text-zinc-100">{SITE_NAME}</span>
+    <footer className="border-t border-border bg-surface">
+      <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+        <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
+          <div className="space-y-5">
+            <Link to="/" className="inline-block">
+              <img
+                src={assetUrl('logo.png')}
+                alt={SITE_NAME}
+                className="h-9 w-auto opacity-90"
+              />
             </Link>
-            <p className="max-w-sm text-sm leading-relaxed text-zinc-500">
-              Intelligent software for modern automotive service.
+            <p className="max-w-xs text-sm leading-relaxed text-white/40">
+              Enterprise software for the automotive service industry.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">Company</p>
-              <ul className="space-y-2 text-sm">
-                {footerLinks.map((link) => (
-                  <li key={link.to}>
-                    <Link to={link.to} className="text-zinc-400 transition-colors hover:text-white">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">Connect</p>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href={GITHUB_URL} className="text-zinc-400 transition-colors hover:text-white" target="_blank" rel="noreferrer">
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-zinc-400 transition-colors hover:text-white">
-                    Contact
+          <nav aria-label="Footer">
+            <ul className="flex flex-wrap gap-x-10 gap-y-3">
+              {footerLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-white/45 transition-colors duration-300 hover:text-white"
+                  >
+                    {link.label}
                   </Link>
                 </li>
-              </ul>
-            </div>
-          </div>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <div className="mt-10 border-t border-zinc-800/60 pt-6 text-sm text-zinc-500">
+        <div className="mt-14 border-t border-border pt-8 text-sm text-white/30">
           © 2026 Blind Teknologis
         </div>
       </div>

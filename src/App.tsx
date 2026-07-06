@@ -1,12 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
 import { HomePage } from './pages/HomePage'
-import { IntegrationsPage } from './pages/IntegrationsPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { PrivacyPage } from './pages/PrivacyPage'
-import { ProductsPage } from './pages/ProductsPage'
 import { TermsPage } from './pages/TermsPage'
 
 export default function App() {
@@ -16,11 +14,11 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="products" element={<ProductsPage />} />
-          <Route path="integrations" element={<IntegrationsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
+          <Route path="products" element={<Navigate to="/" replace />} />
+          <Route path="integrations" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -6,16 +6,18 @@
 
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
-    <section className="section-padding border-b border-zinc-800/60">
+    <section className="section-padding border-b border-border">
       <div className="mx-auto max-w-3xl">
         {eyebrow && (
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          <p className="mb-5 text-xs font-medium tracking-[0.25em] text-accent uppercase">
             {eyebrow}
           </p>
         )}
-        <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">{title}</h1>
+        <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.1]">
+          {title}
+        </h1>
         {description && (
-          <p className="mt-5 text-lg leading-relaxed text-zinc-400">{description}</p>
+          <p className="mt-6 text-lg leading-relaxed text-white/50">{description}</p>
         )}
       </div>
     </section>

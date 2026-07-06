@@ -1,5 +1,5 @@
 ﻿import { useEffect } from 'react'
-import { SITE_NAME, SITE_URL } from '../lib/site'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '../lib/site'
 
 type SEOProps = {
   title?: string
@@ -10,11 +10,13 @@ type SEOProps = {
 
 export function SEO({
   title,
-  description = 'Intelligent software that transforms vehicle data into actionable insights for modern automotive service.',
+  description = SITE_DESCRIPTION,
   path = '',
   image = '/logo.png',
 }: SEOProps) {
-  const pageTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Automotive Intelligence Platform`
+  const pageTitle = title
+    ? `${title} | ${SITE_NAME}`
+    : `${SITE_NAME} — Automotive Service. Automated.`
   const url = `${SITE_URL}${path}`
   const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`
 

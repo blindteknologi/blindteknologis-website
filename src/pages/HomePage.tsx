@@ -1,26 +1,27 @@
-﻿import { Brain, GitBranch, Plug } from 'lucide-react'
-import { Button } from '../components/Button'
+﻿import { Button } from '../components/Button'
+import { HeroVisualization } from '../components/HeroVisualization'
 import { SEO } from '../components/SEO'
-import { assetUrl, SITE_TAGLINE, TEKBOX_REPO_URL } from '../lib/site'
+import { SITE_DESCRIPTION } from '../lib/site'
 
-const features = [
+const outcomes = [
   {
-    icon: Brain,
-    title: 'Vehicle Intelligence',
-    description:
-      'Decode VIN data, maintenance context, and vehicle capabilities into structured intelligence advisors can trust.',
+    title: 'Save Hours Every Day',
+    description: 'Eliminate repetitive administrative work.',
   },
   {
-    icon: GitBranch,
-    title: 'Workflow Intelligence',
+    title: 'Consistency At Scale',
     description:
-      'Support consistent documentation, service recommendations, and shop communication without replacing your existing systems.',
+      'Create repeatable processes that deliver the same customer experience every time.',
   },
   {
-    icon: Plug,
-    title: 'Future Ready Integrations',
+    title: 'Never Miss Opportunities',
     description:
-      'Designed to connect with modern cloud shop management platforms through authorized APIs as partnerships mature.',
+      'Reduce missed inspections, forgotten follow-ups, and inconsistent workflows.',
+  },
+  {
+    title: 'Built To Grow',
+    description:
+      'Modern software that scales with your business without increasing administrative overhead.',
   },
 ]
 
@@ -29,35 +30,27 @@ export function HomePage() {
     <>
       <SEO />
 
-      <section className="relative overflow-hidden border-b border-zinc-800/60">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,63,70,0.35),_transparent_55%)]" />
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgb(215_25_32/0.08),transparent)]" />
+
         <div className="section-padding relative mx-auto max-w-6xl">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">{SITE_TAGLINE}</p>
-              <h1 className="max-w-2xl text-5xl font-semibold tracking-tight text-gradient md:text-6xl">
-                Intelligence for Modern Automotive Service
+              <h1 className="text-5xl font-semibold tracking-tight text-gradient md:text-6xl md:leading-[1.08] lg:text-7xl">
+                Automotive Service.
+                <br />
+                <span className="text-white">Automated.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">
-                Blind Teknologis develops intelligent software that transforms vehicle data into actionable insights,
-                helping repair shops improve efficiency, consistency, documentation, and customer communication.
+              <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/50">
+                {SITE_DESCRIPTION}
               </p>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-500">
-                Our software is designed to integrate alongside existing shop management systems rather than replace them.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button to="/products">Explore TekBox</Button>
-                <Button to="/contact" variant="secondary">Request Early Access</Button>
+              <div className="mt-10">
+                <Button to="/contact">Get in Touch</Button>
               </div>
             </div>
 
             <div className="flex justify-center lg:justify-end">
-              <div className="surface-card flex w-full max-w-md flex-col items-center px-10 py-14 text-center">
-                <img src={assetUrl('logo.png')} alt="Blind Teknologis" className="h-24 w-auto" />
-                <p className="mt-6 text-sm leading-relaxed text-zinc-400">
-                  Premium automotive intelligence built for service advisors, technicians, and shop operators.
-                </p>
-              </div>
+              <HeroVisualization />
             </div>
           </div>
         </div>
@@ -65,37 +58,53 @@ export function HomePage() {
 
       <section className="section-padding">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-12 max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-white">Built for clarity in the service bay</h2>
-            <p className="mt-4 text-zinc-400">
-              TekBox combines deterministic vehicle intelligence with practical workflow support for everyday shop operations.
+          <div className="mb-16 max-w-xl">
+            <div className="accent-line mb-6" />
+            <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+              Outcomes that matter
+            </h2>
+            <p className="mt-4 text-white/45">
+              Software designed around how your business actually operates.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {features.map(({ icon: Icon, title, description }) => (
-              <article key={title} className="surface-card p-8">
-                <div className="mb-5 inline-flex rounded-xl border border-zinc-700/80 bg-zinc-900 p-3 text-zinc-200">
-                  <Icon size={22} />
-                </div>
-                <h3 className="text-lg font-medium text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-400">{description}</p>
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
+            {outcomes.map((item, index) => (
+              <article
+                key={item.title}
+                className="bg-panel p-10 transition-colors duration-300 hover:bg-[#141414] md:p-12"
+              >
+                <span className="text-xs font-medium tracking-[0.2em] text-accent/80">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-4 text-xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/45">
+                  {item.description}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding border-t border-zinc-800/60">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-3xl border border-zinc-800 bg-zinc-900/30 px-8 py-10 md:flex-row md:items-center">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Flagship product</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">TekBox</h2>
-            <p className="mt-2 max-w-xl text-sm text-zinc-400">
-              Service advisor intelligence with VIN decoding, maintenance analysis, and capability evidence — in active development.
-            </p>
+      <section className="border-t border-border">
+        <div className="section-padding mx-auto max-w-6xl">
+          <div className="glass-panel rounded-2xl p-10 md:flex md:items-center md:justify-between md:p-14">
+            <div className="max-w-lg">
+              <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                Serious software for serious operators.
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-white/45">
+                We partner with automotive service businesses ready to modernize how they
+                work.
+              </p>
+            </div>
+            <Button to="/contact" variant="secondary" className="mt-8 shrink-0 md:mt-0">
+              Start a Conversation
+            </Button>
           </div>
-          <Button href={TEKBOX_REPO_URL} variant="secondary">View on GitHub</Button>
         </div>
       </section>
     </>

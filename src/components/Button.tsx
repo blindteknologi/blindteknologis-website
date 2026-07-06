@@ -11,10 +11,10 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    'bg-white text-zinc-950 hover:bg-zinc-200 border border-transparent',
+    'bg-accent text-white hover:bg-[#b9151b] border border-accent/80 shadow-[0_0_32px_rgb(215_25_32/0.2)]',
   secondary:
-    'bg-transparent text-zinc-100 hover:bg-zinc-800/60 border border-zinc-700',
-  ghost: 'bg-transparent text-zinc-300 hover:text-white border border-transparent',
+    'bg-transparent text-white hover:bg-white/5 border border-border',
+  ghost: 'bg-transparent text-white/70 hover:text-white border border-transparent',
 }
 
 export function Button({
@@ -24,7 +24,7 @@ export function Button({
   variant = 'primary',
   className = '',
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${variants[variant]} ${className}`
+  const classes = `inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 ${variants[variant]} ${className}`
 
   if (to) {
     return (
@@ -36,11 +36,20 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}>
+      <a
+        href={href}
+        className={classes}
+        target={href.startsWith('http') ? '_blank' : undefined}
+        rel={href.startsWith('http') ? 'noreferrer' : undefined}
+      >
         {children}
       </a>
     )
   }
 
-  return <button type="button" className={classes}>{children}</button>
+  return (
+    <button type="button" className={classes}>
+      {children}
+    </button>
+  )
 }
