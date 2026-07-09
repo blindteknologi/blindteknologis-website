@@ -1,6 +1,6 @@
 # Blind Teknologis
 
-Enterprise marketing website for [blindteknologis.com](https://blindteknologis.com).
+Enterprise marketing website — [blindteknologis.com](https://blindteknologis.com)
 
 ## Development
 
@@ -22,6 +22,7 @@ npm run lint
 |--------|-------------|
 | `archive/website-v2` | First corporate prototype |
 | `archive/pre-enterprise-redesign` | Pre–V2 enterprise rebuild |
+| `archive/pre-mockup-rebuild` | Pre–mockup-aligned rebuild |
 
 ## Deployment
 

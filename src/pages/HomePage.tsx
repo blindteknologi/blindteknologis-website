@@ -1,9 +1,9 @@
 ﻿import { SEO } from '../components/SEO'
-import { EnterpriseReady } from '../components/home/EnterpriseReady'
+import { AboutSection } from '../components/home/AboutSection'
+import { ContactSection } from '../components/home/ContactSection'
 import { FeatureCards } from '../components/home/FeatureCards'
-import { FinalCta } from '../components/home/FinalCta'
 import { HeroSection } from '../components/home/HeroSection'
-import { WhySection } from '../components/home/WhySection'
+import { PlatformSection } from '../components/home/PlatformSection'
 
 export function HomePage() {
   return (
@@ -11,9 +11,9 @@ export function HomePage() {
       <SEO />
       <HeroSection />
       <FeatureCards />
-      <WhySection />
-      <EnterpriseReady />
-      <FinalCta />
+      <PlatformSection />
+      <AboutSection />
+      <ContactSection />
     </>
   )
 }
