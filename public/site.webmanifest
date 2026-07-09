@@ -1,11 +1,11 @@
 {
   "name": "Blind Teknologis",
   "short_name": "Blind Teknologis",
-  "description": "Enterprise workflow infrastructure for automotive service platforms",
+  "description": "Enterprise workflow automation for automotive service",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#050505",
+  "theme_color": "#050505",
   "icons": [
     {
       "src": "/logo.png",

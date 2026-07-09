@@ -1,6 +1,6 @@
 # Blind Teknologis
 
-Enterprise marketing website for [Blind Teknologis](https://blindteknologis.com).
+Enterprise marketing website for [blindteknologis.com](https://blindteknologis.com).
 
 ## Development
 
@@ -13,12 +13,16 @@ npm run dev
 
 ```bash
 npm run build
+npm run lint
 ```
 
-## Archive
+## Archives
 
-Previous prototype preserved on branch `archive/website-v2`.
+| Branch | Description |
+|--------|-------------|
+| `archive/website-v2` | First corporate prototype |
+| `archive/pre-enterprise-redesign` | Pre–V2 enterprise rebuild |
 
 ## Deployment
 
-Deploys to GitHub Pages on push to `main` via GitHub Actions.
+GitHub Pages via GitHub Actions on push to `main`.

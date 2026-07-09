@@ -1,12 +1,10 @@
 ﻿export const SITE_NAME = 'Blind Teknologis'
 
 export const SITE_DESCRIPTION =
-  'Blind Teknologis develops enterprise workflow infrastructure for modern automotive service platforms, reducing administrative overhead while improving operational consistency and automation.'
+  'Blind Teknologis develops enterprise workflow software that helps automotive service businesses eliminate repetitive administrative work, improve consistency, recover missed opportunities, and operate more efficiently through intelligent automation.'
 
-export const CONTACT_EMAILS = {
-  info: 'info@blindteknologis.com',
-  privacy: 'privacy@blindteknologis.com',
-} as const
+export const CONTACT_EMAIL = 'info@blindteknologis.com'
+export const PRIVACY_EMAIL = 'privacy@blindteknologis.com'
 
 export const SITE_URL =
   import.meta.env.VITE_SITE_URL ?? 'https://blindteknologis.com'
