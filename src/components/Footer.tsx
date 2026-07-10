@@ -103,7 +103,7 @@ export function Footer() {
         </div>
 
         <p className="mt-14 border-t border-zinc-800 pt-8 text-center text-sm text-zinc-500">
-          © {new Date().getFullYear()} Blind Teknologis. All rights reserved.
+          © 2026 Blind Teknologis. All rights reserved.
         </p>
       </div>
     </footer>

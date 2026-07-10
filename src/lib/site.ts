@@ -50,7 +50,7 @@ export const NAV_LINKS = [
   { href: '/contact/', label: 'Contact' },
 ] as const
 
-export const PLATFORM_MODULES = [
+export const PLATFORM_HERO_MODULES = [
   {
     title: 'Maintenance Intelligence',
     description: 'Pull history, get recommendations, and show customers with clarity.',
@@ -69,14 +69,17 @@ export const PLATFORM_MODULES = [
     description: 'Seamlessly connect with your shop management systems.',
   },
   {
-    title: 'VIN Decoding',
+    title: 'Extensive VIN Decoding',
     description: 'Decode more data points and uncover what others miss.',
   },
-  {
-    title: 'Future AI Modules',
-    description: 'Expanding capabilities built for the next generation of shop intelligence.',
-  },
 ] as const
+
+export const PLATFORM_FUTURE_MODULE = {
+  title: 'Future AI Modules',
+  description: 'Expanding capabilities built for the next generation of shop intelligence.',
+} as const
+
+export const PLATFORM_MODULES = [...PLATFORM_HERO_MODULES, PLATFORM_FUTURE_MODULE] as const
 
 export const PRODUCTS = [
   {

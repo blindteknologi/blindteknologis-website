@@ -13,13 +13,13 @@ export function Header({ active = 'Home' }: { active?: string }) {
     <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
         <Link href="/" className="relative z-10 shrink-0" onClick={() => setMenuOpen(false)}>
-          <div className="rounded-2xl bg-black px-4 py-2.5 sm:px-5 sm:py-3">
+          <div className="rounded-2xl bg-black px-3 py-2 sm:px-4 sm:py-2.5">
             <Image
               src="/logo.png"
               alt={SITE_NAME}
-              width={200}
-              height={56}
-              className="h-9 w-auto sm:h-11"
+              width={240}
+              height={72}
+              className="h-10 w-auto object-contain sm:h-11"
               priority
             />
           </div>

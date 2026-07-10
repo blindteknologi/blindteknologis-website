@@ -8,7 +8,7 @@ import {
   ScanLine,
   Wrench,
 } from 'lucide-react'
-import { PLATFORM_MODULES } from '@/lib/site'
+import { PLATFORM_FUTURE_MODULE, PLATFORM_HERO_MODULES } from '@/lib/site'
 import type { LucideIcon } from 'lucide-react'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -16,11 +16,62 @@ const iconMap: Record<string, LucideIcon> = {
   'Technician Story Rewriting': Wrench,
   'Comeback Alerts': AlertTriangle,
   'Shop System Integrations': Link2,
-  'VIN Decoding': ScanLine,
+  'Extensive VIN Decoding': ScanLine,
   'Future AI Modules': Brain,
 }
 
+function PlatformCard({
+  title,
+  description,
+  highlight = false,
+  compact = false,
+}: {
+  title: string
+  description: string
+  highlight?: boolean
+  compact?: boolean
+}) {
+  const Icon = iconMap[title] ?? FileSearch
+
+  return (
+    <article
+      className={`group flex flex-col rounded-2xl bg-charcoal text-white transition-all duration-300 hover:-translate-y-1.5 hover:bg-charcoal-mid hover:shadow-xl hover:shadow-black/20 ${
+        compact
+          ? 'min-h-0 flex-row items-center gap-4 p-4 sm:p-5'
+          : 'min-h-[220px] p-5 sm:min-h-[240px] sm:p-6 lg:min-h-[260px]'
+      }`}
+    >
+      <Icon
+        size={compact ? 22 : 26}
+        className={`shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+          highlight ? 'text-brand-red' : 'text-white'
+        }`}
+        strokeWidth={1.5}
+        aria-hidden="true"
+      />
+      <div className={compact ? 'min-w-0' : undefined}>
+        <h3
+          className={`font-bold leading-snug tracking-[0.06em] uppercase ${
+            compact ? 'text-[10px]' : 'mt-5 text-[11px]'
+          }`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`leading-relaxed text-zinc-400 ${
+            compact ? 'mt-1 text-[10px]' : 'mt-3 text-[11px]'
+          }`}
+        >
+          {description}
+        </p>
+      </div>
+    </article>
+  )
+}
+
 export function PlatformSection() {
+  const future = PLATFORM_FUTURE_MODULE
+
   return (
     <section id="platform" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -47,31 +98,25 @@ export function PlatformSection() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
-            {PLATFORM_MODULES.map((card) => {
-              const Icon = iconMap[card.title] ?? FileSearch
-              const highlight = 'highlight' in card && card.highlight
-
-              return (
-                <article
+          <div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+              {PLATFORM_HERO_MODULES.map((card) => (
+                <PlatformCard
                   key={card.title}
-                  className="group flex min-h-[240px] flex-col rounded-2xl bg-charcoal p-5 text-white transition-all duration-300 hover:-translate-y-1.5 hover:bg-charcoal-mid hover:shadow-xl hover:shadow-black/20 sm:min-h-[260px] sm:p-6"
-                >
-                  <Icon
-                    size={26}
-                    className={`transition-transform duration-300 group-hover:scale-110 ${
-                      highlight ? 'text-brand-red' : 'text-white'
-                    }`}
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
-                  <h3 className="mt-5 text-[11px] font-bold leading-snug tracking-[0.06em] uppercase">
-                    {card.title}
-                  </h3>
-                  <p className="mt-3 text-[11px] leading-relaxed text-zinc-400">{card.description}</p>
-                </article>
-              )
-            })}
+                  title={card.title}
+                  description={card.description}
+                  highlight={'highlight' in card && card.highlight}
+                />
+              ))}
+            </div>
+
+            <div className="mt-3 lg:max-w-md">
+              <PlatformCard
+                title={future.title}
+                description={future.description}
+                compact
+              />
+            </div>
           </div>
         </div>
       </div>
