@@ -10,21 +10,23 @@ export function Header({ active = 'Home' }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white shadow-sm">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
         <Link href="/" className="relative z-10 shrink-0" onClick={() => setMenuOpen(false)}>
-          <Image
-            src="/logo.png"
-            alt={SITE_NAME}
-            width={170}
-            height={48}
-            className="h-10 w-auto sm:h-[3rem]"
-            priority
-          />
+          <div className="rounded-2xl bg-black px-4 py-2.5 sm:px-5 sm:py-3">
+            <Image
+              src="/logo.png"
+              alt={SITE_NAME}
+              width={200}
+              height={56}
+              className="h-9 w-auto sm:h-11"
+              priority
+            />
+          </div>
         </Link>
 
         <nav
-          className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-7 lg:flex"
+          className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:flex"
           aria-label="Main"
         >
           {NAV_LINKS.map((link) => {
@@ -33,13 +35,13 @@ export function Header({ active = 'Home' }: { active?: string }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative pb-1 text-[11px] font-semibold tracking-[0.18em] uppercase transition-colors ${
+                className={`relative pb-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors ${
                   isActive ? 'text-brand-red' : 'text-zinc-700 hover:text-charcoal'
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute right-0 -bottom-0.5 left-0 mx-auto h-0.5 w-full max-w-[24px] bg-brand-red" />
+                  <span className="absolute right-0 -bottom-0 left-0 mx-auto h-0.5 w-full max-w-[28px] bg-brand-red" />
                 )}
               </Link>
             )

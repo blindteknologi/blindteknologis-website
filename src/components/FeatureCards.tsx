@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { BarChart3, Clock, Target, Users } from 'lucide-react'
 
 const features = [
@@ -32,24 +31,18 @@ const features = [
 
 export function FeatureCards() {
   return (
-    <section className="bg-[#f4f4f4] py-12 sm:py-14">
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-6 lg:px-10">
-        {features.map((item, i) => (
-          <motion.article
-            key={item.title}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.45, delay: i * 0.08 }}
-          >
-            <div className="mb-4 inline-flex rounded-full border-2 border-brand-red p-3">
-              <item.icon size={20} className="text-brand-red" strokeWidth={1.5} aria-hidden="true" />
+    <section className="border-t border-zinc-100 bg-white py-14 sm:py-16">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-8 lg:px-10">
+        {features.map((item) => (
+          <article key={item.title}>
+            <div className="mb-5 inline-flex rounded-full border-2 border-brand-red p-3.5">
+              <item.icon size={22} className="text-brand-red" strokeWidth={1.5} aria-hidden="true" />
             </div>
-            <h2 className="text-xs font-bold tracking-wide text-charcoal uppercase sm:text-[13px]">
+            <h2 className="text-sm font-bold tracking-wide text-charcoal uppercase">
               {item.title}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
-          </motion.article>
+            <p className="mt-2.5 text-sm leading-relaxed text-muted">{item.description}</p>
+          </article>
         ))}
       </div>
     </section>

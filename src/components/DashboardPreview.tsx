@@ -88,7 +88,7 @@ function RoInsightsChart() {
 
 export function DashboardPreview() {
   return (
-    <div className="relative h-full w-full max-w-[620px]" aria-hidden="true">
+    <div className="relative w-full max-w-[680px] lg:max-w-[720px]" aria-hidden="true">
       <div
         className="relative h-full"
         style={{ perspective: '1200px' }}
@@ -100,7 +100,7 @@ export function DashboardPreview() {
           <div className="rounded-t-[16px] bg-gradient-to-b from-[#d4d4d4] via-[#b8b8b8] to-[#a0a0a0] px-4 pt-2.5 pb-2 shadow-2xl">
             <div className="mx-auto mb-2 h-1.5 w-2.5 rounded-full bg-[#777]" />
             <div className="overflow-hidden rounded-t-[10px] border border-[#888]/60 bg-[#0a0a0a] shadow-inner">
-              <div className="flex min-h-[260px] sm:min-h-[300px]">
+              <div className="flex min-h-[280px] sm:min-h-[320px] lg:min-h-[340px]">
                 <aside className="hidden w-[76px] shrink-0 border-r border-zinc-800 bg-[#070707] py-3 sm:block">
                   <div className="mb-3 flex justify-center">
                     <div className="h-1 w-7 rounded bg-brand-red" />
