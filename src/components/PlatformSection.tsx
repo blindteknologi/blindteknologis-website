@@ -19,6 +19,7 @@ const cards = [
     icon: AlertTriangle,
     title: 'Comeback Alerts',
     description: 'Identify patterns and flag potential comebacks before they impact customer trust.',
+    highlight: true,
   },
   {
     icon: Link2,
@@ -34,9 +35,9 @@ const cards = [
 
 export function PlatformSection() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-surface-light py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start lg:gap-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-start lg:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +50,7 @@ export function PlatformSection() {
               <br />
               Powers Your Shop
             </h2>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
               From vehicle data to repair insights, our platform gives your team the clarity and
               confidence to work smarter and win more.
             </p>
@@ -62,19 +63,28 @@ export function PlatformSection() {
             </Link>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-5 lg:overflow-visible">
             {cards.map((card, i) => (
               <motion.article
                 key={card.title}
-                className="rounded-2xl bg-charcoal p-6 text-white lg:last:col-span-1"
+                className="min-w-[160px] flex-1 rounded-2xl bg-charcoal p-5 text-white lg:min-w-0"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
-                <card.icon size={22} className="text-brand-red" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="mt-4 text-sm font-bold tracking-wide uppercase">{card.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-zinc-400">{card.description}</p>
+                <card.icon
+                  size={22}
+                  className={card.highlight ? 'text-brand-red' : 'text-white'}
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+                <h3 className="mt-4 text-[11px] font-bold leading-snug tracking-wide uppercase sm:text-xs">
+                  {card.title}
+                </h3>
+                <p className="mt-2 text-[10px] leading-relaxed text-zinc-400 sm:text-[11px]">
+                  {card.description}
+                </p>
               </motion.article>
             ))}
           </div>
