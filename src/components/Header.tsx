@@ -1,13 +1,18 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import { NAV_LINKS, SITE_NAME } from '@/lib/site'
 
 export function Header({ active = 'Home' }: { active?: string }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:px-10">
-        <Link href="/" className="shrink-0">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
+        <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
           <div className="rounded-2xl bg-black px-4 py-2.5 sm:px-5 sm:py-3">
             <Image
               src="/logo.png"
@@ -39,14 +44,64 @@ export function Header({ active = 'Home' }: { active?: string }) {
           })}
         </nav>
 
-        <Link
-          href="/contact/"
-          className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-brand-red px-4 py-2.5 text-xs font-semibold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-hover sm:px-5"
-        >
-          Request Early Access
-          <ArrowRight size={14} aria-hidden="true" />
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/contact/"
+            className="hidden items-center gap-2 rounded-lg bg-brand-red px-5 py-2.5 text-xs font-semibold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-hover sm:inline-flex"
+          >
+            Request Early Access
+            <ArrowRight size={14} aria-hidden="true" />
+          </Link>
+
+          <button
+            type="button"
+            className="inline-flex rounded-lg border border-zinc-300 p-2 text-charcoal lg:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
+
+      {menuOpen && (
+        <nav
+          id="mobile-nav"
+          className="border-t border-zinc-200 bg-white px-5 py-4 lg:hidden"
+          aria-label="Mobile"
+        >
+          <ul className="space-y-1">
+            {NAV_LINKS.map((link) => {
+              const isActive = link.label === active
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block rounded-lg px-3 py-2.5 text-sm font-semibold tracking-wide uppercase ${
+                      isActive ? 'bg-red-50 text-brand-red' : 'text-zinc-700 hover:bg-zinc-50'
+                    }`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            })}
+            <li className="pt-2">
+              <Link
+                href="/contact/"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-red px-4 py-3 text-xs font-semibold tracking-wide text-white uppercase"
+                onClick={() => setMenuOpen(false)}
+              >
+                Request Early Access
+                <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   )
 }
