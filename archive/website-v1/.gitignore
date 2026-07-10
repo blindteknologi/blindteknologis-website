@@ -1,31 +1,30 @@
 # Dependencies
 node_modules/
-.next/
-out/
-dist/
-
-# Tools
 .tools/
 
-# Reference
-reference/
-
-# Archive
-archive/website-v1/node_modules/
+# Build
+dist/
+dist-ssr/
 
 # Environment
 .env
 .env.*
+!.env.example
 
 # Editor
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 .idea/
+*.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Debug
+# Logs
+*.log
 npm-debug.log*
+
+# TypeScript
 *.tsbuildinfo
-next-env.d.ts
