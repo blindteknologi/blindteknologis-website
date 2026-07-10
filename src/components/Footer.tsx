@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, MapPin } from 'lucide-react'
-import { CONTACT_EMAIL, SITE_NAME } from '@/lib/site'
+import { CONTACT_DEPARTMENTS, SITE_NAME } from '@/lib/site'
 
 const links = [
   { href: '/about/', label: 'About' },
@@ -51,13 +51,15 @@ export function Footer() {
               Contact
             </p>
             <ul className="space-y-3 text-sm text-muted">
-              <li className="flex items-center gap-2">
-                <Mail size={14} className="text-brand-red" aria-hidden="true" />
-                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-charcoal">
-                  {CONTACT_EMAIL}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
+              {CONTACT_DEPARTMENTS.map((dept) => (
+                <li key={dept.id} className="flex items-start gap-2">
+                  <Mail size={14} className="mt-0.5 shrink-0 text-brand-red" aria-hidden="true" />
+                  <a href={`mailto:${dept.email}`} className="hover:text-charcoal">
+                    {dept.email}
+                  </a>
+                </li>
+              ))}
+              <li className="flex items-center gap-2 pt-1">
                 <MapPin size={14} className="text-brand-red" aria-hidden="true" />
                 United States
               </li>
