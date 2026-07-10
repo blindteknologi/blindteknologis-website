@@ -35,15 +35,15 @@ function WireframeCar() {
     <svg viewBox="0 0 280 120" className="h-full w-full" fill="none" aria-hidden="true">
       <path
         d="M30 75 L55 52 L95 42 L185 42 L225 52 L250 75 L242 82 L38 82 Z"
-        stroke="#e31b23"
+        stroke="#d71920"
         strokeWidth="1.2"
         opacity="0.85"
       />
-      <path d="M95 42 L115 32 L165 32 L185 42" stroke="#e31b23" strokeWidth="0.8" opacity="0.6" />
+      <path d="M95 42 L115 32 L165 32 L185 42" stroke="#d71920" strokeWidth="0.8" opacity="0.6" />
       <circle cx="75" cy="82" r="14" stroke="#666" strokeWidth="0.8" />
       <circle cx="205" cy="82" r="14" stroke="#666" strokeWidth="0.8" />
-      <circle cx="75" cy="82" r="6" stroke="#e31b23" strokeWidth="0.5" opacity="0.5" />
-      <circle cx="205" cy="82" r="6" stroke="#e31b23" strokeWidth="0.5" opacity="0.5" />
+      <circle cx="75" cy="82" r="6" stroke="#d71920" strokeWidth="0.5" opacity="0.5" />
+      <circle cx="205" cy="82" r="6" stroke="#d71920" strokeWidth="0.5" opacity="0.5" />
       {[0, 1, 2, 3, 4].map((i) => (
         <line
           key={i}
@@ -56,9 +56,9 @@ function WireframeCar() {
           opacity="0.5"
         />
       ))}
-      <ellipse cx="140" cy="58" rx="35" ry="8" stroke="#e31b23" strokeWidth="0.5" opacity="0.4" />
-      <circle cx="120" cy="68" r="3" fill="#e31b23" opacity="0.7" />
-      <circle cx="160" cy="65" r="3" fill="#e31b23" opacity="0.5" />
+      <ellipse cx="140" cy="58" rx="35" ry="8" stroke="#d71920" strokeWidth="0.5" opacity="0.4" />
+      <circle cx="120" cy="68" r="3" fill="#d71920" opacity="0.7" />
+      <circle cx="160" cy="65" r="3" fill="#d71920" opacity="0.5" />
     </svg>
   )
 }
@@ -68,14 +68,14 @@ function RoInsightsChart() {
     <svg viewBox="0 0 240 70" className="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="roFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#e31b23" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#e31b23" stopOpacity="0" />
+          <stop offset="0%" stopColor="#d71920" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#d71920" stopOpacity="0" />
         </linearGradient>
       </defs>
       <polyline
         points="0,55 30,48 60,40 90,45 120,28 150,32 180,18 210,22 240,12"
         fill="none"
-        stroke="#e31b23"
+        stroke="#d71920"
         strokeWidth="2"
       />
       <polygon

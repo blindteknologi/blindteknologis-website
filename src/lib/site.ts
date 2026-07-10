@@ -49,3 +49,98 @@ export const NAV_LINKS = [
   { href: '/integrations/', label: 'Integrations' },
   { href: '/contact/', label: 'Contact' },
 ] as const
+
+export const PLATFORM_MODULES = [
+  {
+    title: 'Maintenance Intelligence',
+    description: 'Pull history, get recommendations, and show customers with clarity.',
+  },
+  {
+    title: 'Technician Story Rewriting',
+    description: 'Transform technician notes into clear, customer-friendly summaries.',
+  },
+  {
+    title: 'Comeback Alerts',
+    description: 'Get ahead of potential comebacks before they impact your shop.',
+    highlight: true,
+  },
+  {
+    title: 'Shop System Integrations',
+    description: 'Seamlessly connect with your shop management systems.',
+  },
+  {
+    title: 'VIN Decoding',
+    description: 'Decode more data points and uncover what others miss.',
+  },
+  {
+    title: 'Future AI Modules',
+    description: 'Expanding capabilities built for the next generation of shop intelligence.',
+  },
+] as const
+
+export const PRODUCTS = [
+  {
+    title: 'TekBox Platform',
+    description:
+      'The unified foundation for vehicle intelligence, workflow automation, and shop operations.',
+  },
+  {
+    title: 'Maintenance Intelligence',
+    description:
+      'Surface maintenance context and service requirements with clarity and confidence.',
+  },
+  {
+    title: 'Technician AI',
+    description:
+      'Transform technical repair notes into clear, customer-friendly explanations.',
+  },
+  {
+    title: 'Inspection Intelligence',
+    description:
+      'Turn digital inspections into actionable insights and revenue opportunities.',
+  },
+  {
+    title: 'Digital Vehicle Health Reports',
+    description:
+      'Deliver professional vehicle health summaries that build trust and drive approvals.',
+  },
+  {
+    title: 'Workflow Automation',
+    description:
+      'Automate repetitive tasks so your team focuses on customers and repairs.',
+  },
+  {
+    title: 'Business Analytics',
+    description:
+      'Track performance, identify trends, and make data-driven decisions for your shop.',
+  },
+  {
+    title: 'Future Marketplace',
+    description:
+      'An expanding ecosystem of integrations, modules, and partner solutions.',
+  },
+] as const
+
+export const INTEGRATIONS = [
+  'Tekmetric',
+  'Shop-Ware',
+  'Mitchell1',
+  'Protractor',
+  'NAPA TRACS',
+  'CCC',
+  'VIN Decoders',
+  'Open API',
+] as const
+
+export const ABOUT_STATS = [
+  { value: '82+', label: 'Hours Saved Monthly', sub: 'Per service advisor' },
+  { value: '24', label: 'Opportunities Recovered', sub: 'Average per month' },
+  { value: '18%', label: 'Revenue Growth', sub: 'From missed services' },
+  { value: '32', label: 'Systems Scanned', sub: 'Per vehicle profile' },
+] as const
+
+export const SOCIAL_LINKS = [
+  { href: 'https://linkedin.com', label: 'LinkedIn' },
+  { href: 'https://twitter.com', label: 'X (Twitter)' },
+  { href: 'https://github.com', label: 'GitHub' },
+] as const

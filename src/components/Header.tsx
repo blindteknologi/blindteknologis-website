@@ -10,7 +10,7 @@ export function Header({ active = 'Home' }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
         <Link href="/" className="relative z-10 shrink-0" onClick={() => setMenuOpen(false)}>
           <div className="rounded-2xl bg-black px-4 py-2.5 sm:px-5 sm:py-3">
@@ -35,8 +35,8 @@ export function Header({ active = 'Home' }: { active?: string }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative pb-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors ${
-                  isActive ? 'text-brand-red' : 'text-zinc-700 hover:text-charcoal'
+                className={`relative pb-1.5 text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors ${
+                  isActive ? 'text-brand-red' : 'text-zinc-600 hover:text-charcoal'
                 }`}
               >
                 {link.label}

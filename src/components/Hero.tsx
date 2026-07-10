@@ -5,6 +5,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import { HeroBackground } from '@/components/HeroBackground'
 import { HeroCar } from '@/components/HeroCar'
 import { DashboardPreview } from '@/components/DashboardPreview'
+import { AnimateOnMount } from '@/components/AnimateOnMount'
 
 const bullets = [
   'Identify missed opportunities and boost revenue',
@@ -15,26 +16,28 @@ const bullets = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[720px] overflow-hidden bg-charcoal lg:min-h-[780px]">
+    <section className="relative min-h-[760px] overflow-hidden bg-hero lg:min-h-[820px]">
       <HeroBackground />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,520px)_1fr] lg:gap-6 lg:py-16 lg:pl-10 lg:pr-6">
-        <div className="z-10">
-          <p className="text-[11px] font-bold tracking-[0.22em] text-brand-red uppercase">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,540px)_1fr] lg:gap-8 lg:py-20 lg:pl-10 lg:pr-8">
+        <AnimateOnMount className="z-10">
+          <p className="text-[11px] font-bold tracking-[0.24em] text-brand-red uppercase">
             Built for Shop Owners
           </p>
-          <h1 className="font-display mt-4 text-[2rem] leading-[1.05] font-bold tracking-tight text-white uppercase sm:text-[2.5rem] lg:text-[2.85rem]">
+          <h1 className="font-display mt-5 text-[2.1rem] leading-[1.06] font-bold tracking-tight text-white uppercase sm:text-[2.65rem] lg:text-[3rem]">
             Stop Losing Jobs.
             <br />
-            Start Maximizing{' '}
+            Start Maximizing
+            <br />
             <span className="text-brand-red">Every Opportunity.</span>
           </h1>
           <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-zinc-300">
-            Our intelligent software helps auto repair shops save time, improve accuracy, and turn
-            every repair into a better customer experience—and a stronger bottom line.
+            Blind Teknologis uses AI to transform automotive repair shops — saving time,
+            improving accuracy, and turning every repair into a better customer experience and a
+            stronger bottom line.
           </p>
 
-          <ul className="mt-6 space-y-3">
+          <ul className="mt-7 space-y-3.5">
             {bullets.map((item) => (
               <li key={item} className="flex items-start gap-3 text-[14px] leading-snug text-zinc-300">
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-brand-red">
@@ -45,29 +48,29 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-9 flex flex-wrap gap-4">
             <Link
               href="/contact/"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-red px-6 py-3 text-[11px] font-semibold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-hover"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-red px-7 py-3.5 text-[11px] font-semibold tracking-[0.12em] text-white uppercase transition-all hover:bg-brand-red-hover hover:shadow-lg hover:shadow-brand-red/25"
             >
               See How It Works
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
             <Link
               href="/products/"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-400 bg-transparent px-6 py-3 text-[11px] font-semibold tracking-wide text-white uppercase transition-colors hover:border-white hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-500 bg-charcoal-mid/60 px-7 py-3.5 text-[11px] font-semibold tracking-[0.12em] text-white uppercase backdrop-blur-sm transition-all hover:border-zinc-300 hover:bg-charcoal-mid"
             >
               Explore Features
             </Link>
           </div>
-        </div>
+        </AnimateOnMount>
 
-        <div className="relative z-10 h-[380px] sm:h-[440px] lg:h-[540px]">
+        <AnimateOnMount delay={1} className="relative z-10 h-[400px] sm:h-[460px] lg:h-[560px]">
           <HeroCar />
-          <div className="relative z-10 flex h-full items-center justify-end pr-0 lg:pr-2">
+          <div className="relative z-10 flex h-full items-center justify-end pr-0 lg:pr-4">
             <DashboardPreview />
           </div>
-        </div>
+        </AnimateOnMount>
       </div>
     </section>
   )
