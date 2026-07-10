@@ -32,12 +32,11 @@ const features = [
 
 export function FeatureCards() {
   return (
-    <section className="border-t border-zinc-100 bg-white py-12 sm:py-14">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-8 lg:px-10">
+    <section className="bg-[#f4f4f4] py-12 sm:py-14">
+      <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-6 lg:px-10">
         {features.map((item, i) => (
           <motion.article
             key={item.title}
-            className="text-center lg:text-left"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -46,7 +45,7 @@ export function FeatureCards() {
             <div className="mb-4 inline-flex rounded-full border-2 border-brand-red p-3">
               <item.icon size={20} className="text-brand-red" strokeWidth={1.5} aria-hidden="true" />
             </div>
-            <h2 className="text-xs font-bold tracking-wide text-charcoal uppercase sm:text-sm">
+            <h2 className="text-xs font-bold tracking-wide text-charcoal uppercase sm:text-[13px]">
               {item.title}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>

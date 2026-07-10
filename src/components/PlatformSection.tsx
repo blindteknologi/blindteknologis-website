@@ -40,9 +40,9 @@ const cards = [
 
 export function PlatformSection() {
   return (
-    <section className="bg-surface-light py-14 sm:py-20">
+    <section className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-start lg:gap-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,300px)_1fr] lg:items-start lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export function PlatformSection() {
             <p className="text-[11px] font-bold tracking-[0.22em] text-brand-red uppercase">
               Our Platform
             </p>
-            <h2 className="font-display mt-3 text-3xl leading-[1.1] font-bold tracking-tight text-charcoal uppercase sm:text-4xl">
+            <h2 className="font-display mt-3 text-3xl leading-[1.1] font-bold tracking-tight text-charcoal uppercase sm:text-[2.1rem]">
               Intelligence That
               <br />
               Powers Your Shop
@@ -74,22 +74,22 @@ export function PlatformSection() {
             {cards.map((card, i) => (
               <motion.article
                 key={card.title}
-                className="min-w-[148px] flex-1 rounded-xl bg-charcoal p-4 text-white lg:min-w-0"
+                className="flex min-h-[200px] min-w-[150px] flex-1 flex-col rounded-xl bg-charcoal p-4 text-white lg:min-w-0"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
                 <card.icon
-                  size={20}
+                  size={22}
                   className={card.highlight ? 'text-brand-red' : 'text-white'}
                   strokeWidth={1.5}
                   aria-hidden="true"
                 />
-                <h3 className="mt-3 text-[10px] font-bold leading-snug tracking-wide uppercase sm:text-[11px]">
+                <h3 className="mt-4 text-[10px] font-bold leading-snug tracking-wide uppercase sm:text-[11px]">
                   {card.title}
                 </h3>
-                <p className="mt-1.5 text-[9px] leading-relaxed text-zinc-400 sm:text-[10px]">
+                <p className="mt-2 text-[9px] leading-relaxed text-zinc-400 sm:text-[10px]">
                   {card.description}
                 </p>
               </motion.article>

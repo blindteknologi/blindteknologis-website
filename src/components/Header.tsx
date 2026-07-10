@@ -10,20 +10,23 @@ export function Header({ active = 'Home' }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white shadow-sm">
-      <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-5 py-3 sm:px-8 lg:px-10">
-        <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
+    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
+        <Link href="/" className="relative z-10 shrink-0" onClick={() => setMenuOpen(false)}>
           <Image
             src="/logo.png"
             alt={SITE_NAME}
-            width={180}
-            height={52}
-            className="h-10 w-auto sm:h-12"
+            width={170}
+            height={48}
+            className="h-10 w-auto sm:h-[3rem]"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center justify-center gap-8 lg:flex" aria-label="Main">
+        <nav
+          className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-7 lg:flex"
+          aria-label="Main"
+        >
           {NAV_LINKS.map((link) => {
             const isActive = link.label === active
             return (
@@ -31,19 +34,19 @@ export function Header({ active = 'Home' }: { active?: string }) {
                 key={link.href}
                 href={link.href}
                 className={`relative pb-1 text-[11px] font-semibold tracking-[0.18em] uppercase transition-colors ${
-                  isActive ? 'text-brand-red' : 'text-zinc-600 hover:text-charcoal'
+                  isActive ? 'text-brand-red' : 'text-zinc-700 hover:text-charcoal'
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute right-0 -bottom-0.5 left-0 mx-auto h-0.5 w-full max-w-[28px] bg-brand-red" />
+                  <span className="absolute right-0 -bottom-0.5 left-0 mx-auto h-0.5 w-full max-w-[24px] bg-brand-red" />
                 )}
               </Link>
             )
           })}
         </nav>
 
-        <div className="flex items-center justify-end gap-3">
+        <div className="relative z-10 flex items-center gap-3">
           <Link
             href="/contact/"
             className="hidden items-center gap-2 rounded-full bg-brand-red px-5 py-2.5 text-[11px] font-semibold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-hover sm:inline-flex"
