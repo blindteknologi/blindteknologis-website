@@ -32,22 +32,24 @@ const features = [
 
 export function FeatureCards() {
   return (
-    <section className="bg-surface-light py-16 sm:py-20">
-      <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-10">
+    <section className="border-t border-zinc-100 bg-white py-12 sm:py-14">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-8 lg:px-10">
         {features.map((item, i) => (
           <motion.article
             key={item.title}
-            className="rounded-2xl bg-white p-8 shadow-[0_4px_24px_rgb(0_0_0/0.06)]"
+            className="text-center lg:text-left"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.45, delay: i * 0.08 }}
           >
-            <div className="mb-5 inline-flex rounded-full bg-red-50 p-3">
-              <item.icon size={22} className="text-brand-red" strokeWidth={1.5} aria-hidden="true" />
+            <div className="mb-4 inline-flex rounded-full border-2 border-brand-red p-3">
+              <item.icon size={20} className="text-brand-red" strokeWidth={1.5} aria-hidden="true" />
             </div>
-            <h2 className="text-sm font-bold tracking-wide text-charcoal uppercase">{item.title}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
+            <h2 className="text-xs font-bold tracking-wide text-charcoal uppercase sm:text-sm">
+              {item.title}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
           </motion.article>
         ))}
       </div>
