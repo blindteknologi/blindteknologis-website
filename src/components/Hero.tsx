@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import { ArrowRight, Check } from 'lucide-react'
 import { HeroBackground } from '@/components/HeroBackground'
-import { HeroCar } from '@/components/HeroCar'
-import { DashboardPreview } from '@/components/DashboardPreview'
+import { HeroVisual } from '@/components/HeroVisual'
 import { AnimateOnMount } from '@/components/AnimateOnMount'
 
 const bullets = [
@@ -65,11 +64,8 @@ export function Hero() {
           </div>
         </AnimateOnMount>
 
-        <AnimateOnMount delay={1} className="relative z-10 h-[400px] sm:h-[460px] lg:h-[560px]">
-          <HeroCar />
-          <div className="relative z-10 flex h-full items-center justify-end pr-0 lg:pr-4">
-            <DashboardPreview />
-          </div>
+        <AnimateOnMount delay={1} className="relative z-10 h-[320px] sm:h-[380px] lg:h-[480px]">
+          <HeroVisual />
         </AnimateOnMount>
       </div>
     </section>
