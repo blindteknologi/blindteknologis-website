@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { FadeIn } from '@/components/FadeIn'
 
 export function ContactCTA() {
   return (
     <section className="relative overflow-hidden bg-charcoal py-20 sm:py-24">
+      {/* Subtle texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: 'url(/images/metallic-textures.png)',
           backgroundSize: 'cover',
@@ -13,7 +15,8 @@ export function ContactCTA() {
         }}
         aria-hidden="true"
       />
-      <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+
+      <FadeIn className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <h2 className="font-display text-3xl leading-[1.1] font-bold tracking-tight text-white uppercase sm:text-4xl">
           Ready to Modernize
           <br />
@@ -30,7 +33,7 @@ export function ContactCTA() {
           Request Early Access
           <ArrowRight size={14} aria-hidden="true" />
         </Link>
-      </div>
+      </FadeIn>
     </section>
   )
 }

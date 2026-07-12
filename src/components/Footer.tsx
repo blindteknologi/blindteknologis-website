@@ -30,8 +30,9 @@ export function Footer() {
     <footer className="border-t border-zinc-800 bg-charcoal text-white">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          {/* Column 1: logo + description + social */}
           <div>
-            <Link href="/">
+            <Link href="/" aria-label="Blind Teknologis — Home">
               <div className="inline-block rounded-2xl bg-black px-4 py-2.5">
                 <Image
                   src="/logo.png"
@@ -63,7 +64,8 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
+          {/* Column 2: navigation */}
+          <nav aria-label="Footer navigation">
             <p className="mb-4 text-[11px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
               Navigation
             </p>
@@ -79,8 +81,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
+          {/* Column 3: contact */}
           <div>
             <p className="mb-4 text-[11px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
               Contact
@@ -103,7 +106,7 @@ export function Footer() {
         </div>
 
         <p className="mt-14 border-t border-zinc-800 pt-8 text-center text-sm text-zinc-500">
-          © 2026 Blind Teknologis. All rights reserved.
+          © {new Date().getFullYear()} Blind Teknologis. All rights reserved.
         </p>
       </div>
     </footer>

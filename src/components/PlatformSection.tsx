@@ -9,6 +9,7 @@ import {
   Wrench,
 } from 'lucide-react'
 import { PLATFORM_FUTURE_MODULE, PLATFORM_HERO_MODULES } from '@/lib/site'
+import { FadeIn } from '@/components/FadeIn'
 import type { LucideIcon } from 'lucide-react'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -16,7 +17,7 @@ const iconMap: Record<string, LucideIcon> = {
   'Technician Story Rewriting': Wrench,
   'Comeback Alerts': AlertTriangle,
   'Shop System Integrations': Link2,
-  'Extensive VIN Decoding': ScanLine,
+  'VIN Decoding': ScanLine,
   'Future AI Modules': Brain,
 }
 
@@ -76,7 +77,7 @@ export function PlatformSection() {
     <section id="platform" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-start lg:gap-12">
-          <div>
+          <FadeIn>
             <p className="text-[11px] font-bold tracking-[0.24em] text-brand-red uppercase">
               Our Platform
             </p>
@@ -96,9 +97,9 @@ export function PlatformSection() {
               Explore the Platform
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
-          </div>
+          </FadeIn>
 
-          <div>
+          <FadeIn delay={0.1}>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {PLATFORM_HERO_MODULES.map((card) => (
                 <PlatformCard
@@ -109,15 +110,10 @@ export function PlatformSection() {
                 />
               ))}
             </div>
-
             <div className="mt-3 lg:max-w-md">
-              <PlatformCard
-                title={future.title}
-                description={future.description}
-                compact
-              />
+              <PlatformCard title={future.title} description={future.description} compact />
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>
