@@ -65,7 +65,12 @@ function WireframeCar() {
 
 function RoInsightsChart() {
   return (
-    <svg viewBox="0 0 240 70" className="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
+    <svg
+      viewBox="0 0 240 70"
+      className="h-full w-full"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
       <defs>
         <linearGradient id="roFill" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#d71920" stopOpacity="0.3" />
@@ -89,18 +94,17 @@ function RoInsightsChart() {
 export function DashboardPreview() {
   return (
     <div className="relative w-full max-w-[680px] lg:max-w-[720px]" aria-hidden="true">
-      <div
-        className="relative h-full"
-        style={{ perspective: '1200px' }}
-      >
+      <div className="relative h-full" style={{ perspective: '1200px' }}>
         <div
           className="relative h-full origin-bottom"
           style={{ transform: 'rotateY(-6deg) rotateX(2deg)' }}
         >
+          {/* Laptop lid / screen bezel */}
           <div className="rounded-t-[16px] bg-gradient-to-b from-[#d4d4d4] via-[#b8b8b8] to-[#a0a0a0] px-4 pt-2.5 pb-2 shadow-2xl">
             <div className="mx-auto mb-2 h-1.5 w-2.5 rounded-full bg-[#777]" />
             <div className="overflow-hidden rounded-t-[10px] border border-[#888]/60 bg-[#0a0a0a] shadow-inner">
               <div className="flex min-h-[280px] sm:min-h-[320px] lg:min-h-[340px]">
+                {/* Sidebar */}
                 <aside className="hidden w-[76px] shrink-0 border-r border-zinc-800 bg-[#070707] py-3 sm:block">
                   <div className="mb-3 flex justify-center">
                     <div className="h-1 w-7 rounded bg-brand-red" />
@@ -130,7 +134,9 @@ export function DashboardPreview() {
                   </ul>
                 </aside>
 
+                {/* Main content */}
                 <div className="flex-1 p-2.5 sm:p-3">
+                  {/* Header row */}
                   <div className="mb-2 flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                       <FileText size={11} className="text-brand-red" />
@@ -141,6 +147,7 @@ export function DashboardPreview() {
                     <div className="h-4 w-4 rounded-full bg-zinc-800" />
                   </div>
 
+                  {/* Stats row */}
                   <div className="mb-2 grid grid-cols-2 gap-1.5 sm:grid-cols-4">
                     {stats.map((stat) => (
                       <div
@@ -148,12 +155,15 @@ export function DashboardPreview() {
                         className="rounded border border-zinc-800 bg-zinc-900/90 px-1.5 py-1.5"
                       >
                         <p className="text-[6.5px] leading-tight text-zinc-500">{stat.label}</p>
-                        <p className="text-[10px] font-bold text-white sm:text-[11px]">{stat.value}</p>
+                        <p className="text-[10px] font-bold text-white sm:text-[11px]">
+                          {stat.value}
+                        </p>
                         <p className="text-[7px] font-medium text-emerald-500">{stat.change}</p>
                       </div>
                     ))}
                   </div>
 
+                  {/* Vehicle row */}
                   <div className="grid gap-1.5 sm:grid-cols-[1.2fr_0.8fr]">
                     <div className="rounded border border-zinc-800 bg-zinc-900/70 p-1.5">
                       <p className="mb-1 text-[7px] text-zinc-500">Vehicle Intelligence</p>
@@ -184,6 +194,7 @@ export function DashboardPreview() {
                     </div>
                   </div>
 
+                  {/* Charts row */}
                   <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2">
                     <div className="rounded border border-zinc-800 bg-zinc-900/70 p-1.5">
                       <p className="mb-1 text-[7px] text-zinc-500">RO Insights</p>
@@ -197,7 +208,9 @@ export function DashboardPreview() {
                       <div className="space-y-1">
                         {topServices.map((service) => (
                           <div key={service.name} className="flex items-center gap-1.5">
-                            <span className="w-14 shrink-0 text-[6px] text-zinc-500">{service.name}</span>
+                            <span className="w-14 shrink-0 text-[6px] text-zinc-500">
+                              {service.name}
+                            </span>
                             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-800">
                               <div
                                 className="h-full rounded-full bg-brand-red/80"
@@ -214,11 +227,13 @@ export function DashboardPreview() {
             </div>
           </div>
 
+          {/* Laptop base */}
           <div className="mx-auto h-2.5 w-[94%] rounded-b-sm bg-gradient-to-b from-[#a8a8a8] to-[#888]" />
           <div className="mx-auto -mt-0.5 h-1.5 w-[72%] rounded-b-xl bg-[#777]" />
         </div>
       </div>
 
+      {/* Drop shadow */}
       <div className="absolute -bottom-6 left-1/2 h-10 w-[85%] -translate-x-1/2 rounded-[50%] bg-black/50 blur-2xl" />
     </div>
   )

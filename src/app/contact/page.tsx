@@ -55,7 +55,8 @@ export default function ContactPage() {
   return (
     <>
       <Header active="Contact" />
-      <main>
+      <main id="main-content">
+        {/* Page hero */}
         <section className="bg-charcoal py-20 text-white">
           <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
             <p className="text-xs font-bold tracking-[0.2em] text-brand-red uppercase">Contact</p>
@@ -68,14 +69,16 @@ export default function ContactPage() {
           </div>
         </section>
 
+        {/* Contact form */}
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,280px)_1fr]">
+              {/* Department switcher */}
               <div>
                 <h2 className="font-display text-xl font-bold tracking-tight text-charcoal uppercase">
                   Contact Options
                 </h2>
-                <ul className="mt-6 space-y-2">
+                <ul className="mt-6 space-y-2" role="list">
                   {CONTACT_DEPARTMENTS.map((dept) => {
                     const isActive = dept.id === departmentId
                     return (
@@ -83,6 +86,7 @@ export default function ContactPage() {
                         <button
                           type="button"
                           onClick={() => handleDepartmentChange(dept.id)}
+                          aria-pressed={isActive}
                           className={`w-full rounded-lg border px-4 py-3 text-left transition-colors ${
                             isActive
                               ? 'border-brand-red bg-red-50'
@@ -117,6 +121,7 @@ export default function ContactPage() {
                 </ul>
               </div>
 
+              {/* Form panel */}
               <div>
                 <div className="mb-6">
                   <h2 className="font-display text-xl font-bold tracking-tight text-charcoal uppercase">
@@ -133,13 +138,20 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form key={departmentId} onSubmit={handleSubmit} className="space-y-5">
+                  <form
+                    key={departmentId}
+                    onSubmit={handleSubmit}
+                    className="space-y-5"
+                    noValidate
+                    aria-label={`${department.label} contact form`}
+                  >
                     <Field id="name" label="Name">
                       <input
                         id="name"
                         name="name"
                         type="text"
                         required
+                        autoComplete="name"
                         className={inputClass}
                       />
                     </Field>
@@ -150,6 +162,7 @@ export default function ContactPage() {
                         name="email"
                         type="email"
                         required
+                        autoComplete="email"
                         className={inputClass}
                       />
                     </Field>
@@ -160,6 +173,7 @@ export default function ContactPage() {
                         name="jobTitle"
                         type="text"
                         required
+                        autoComplete="organization-title"
                         className={inputClass}
                       />
                     </Field>
@@ -172,6 +186,7 @@ export default function ContactPage() {
                             name="location"
                             type="text"
                             required
+                            autoComplete="address-level2"
                             className={inputClass}
                           />
                         </Field>
@@ -182,6 +197,7 @@ export default function ContactPage() {
                             name="phone"
                             type="tel"
                             required
+                            autoComplete="tel"
                             className={inputClass}
                           />
                         </Field>
@@ -217,6 +233,7 @@ export default function ContactPage() {
                             name="phone"
                             type="tel"
                             required
+                            autoComplete="tel"
                             className={inputClass}
                           />
                         </Field>
@@ -237,6 +254,7 @@ export default function ContactPage() {
                             name="directContact"
                             type="tel"
                             required
+                            autoComplete="tel"
                             className={inputClass}
                           />
                         </Field>
@@ -262,6 +280,7 @@ export default function ContactPage() {
                             name="phone"
                             type="tel"
                             required
+                            autoComplete="tel"
                             className={inputClass}
                           />
                         </Field>
