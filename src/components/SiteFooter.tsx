@@ -29,88 +29,99 @@ function SocialMark({ label }: { label: 'LinkedIn' | 'X' | 'GitHub' }) {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#191919] text-white">
-      <div className="section-shell py-14 sm:py-16">
-        <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_0.9fr]">
-          <div>
-            <Link href="/" aria-label={`${SITE_NAME} home`} className="inline-block">
-              <Image
-                src="/logo-on-dark.png"
-                alt={SITE_NAME}
-                width={300}
-                height={90}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <p className="mt-5 max-w-xs text-sm leading-7 text-white/55">
-              Intelligent software for automotive service operations. Built to help shops save time,
-              improve accuracy, and recover more missed revenue.
-            </p>
-            <div className="mt-6 flex gap-3" aria-hidden="true">
-              {(['LinkedIn', 'X', 'GitHub'] as const).map((label) => (
-                <div
-                  key={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white/55"
-                >
-                  <SocialMark label={label} />
-                </div>
-              ))}
+    <footer className="bg-white">
+      <div className="section-shell py-6 sm:py-8 lg:pb-10">
+        <div className="overflow-hidden rounded-[10px] bg-[#191919] px-6 py-14 text-white sm:px-8 sm:py-16 lg:px-10">
+          <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_0.9fr]">
+            <div>
+              <Link href="/" aria-label={`${SITE_NAME} home`} className="inline-block">
+                <Image
+                  src="/logo-on-dark.png"
+                  alt={SITE_NAME}
+                  width={300}
+                  height={90}
+                  className="h-[60px] w-auto sm:h-[66px]"
+                />
+              </Link>
+              <p className="mt-5 max-w-xs text-sm leading-7 text-white/55">
+                Intelligent software for automotive service operations. Built to help shops save
+                time, improve accuracy, and recover more missed revenue.
+              </p>
+              <div className="mt-6 flex gap-3" aria-hidden="true">
+                {(['LinkedIn', 'X', 'GitHub'] as const).map((label) => (
+                  <div
+                    key={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-white/55"
+                  >
+                    <SocialMark label={label} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[0.63rem] font-semibold uppercase tracking-[0.3em] text-white/35">
+                Navigation
+              </p>
+              <ul className="mt-5 space-y-3">
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.pageHref}
+                      className="text-sm text-white/62 transition-colors hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    href="/privacy/"
+                    className="text-sm text-white/62 transition-colors hover:text-white"
+                  >
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms/"
+                    className="text-sm text-white/62 transition-colors hover:text-white"
+                  >
+                    Terms
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-[0.63rem] font-semibold uppercase tracking-[0.3em] text-white/35">
+                Contact
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-white/62">
+                {[
+                  CONTACT_EMAILS.general,
+                  CONTACT_EMAILS.sales,
+                  CONTACT_EMAILS.api,
+                  CONTACT_EMAILS.support,
+                ].map((email) => (
+                  <li key={email} className="flex items-start gap-3">
+                    <Mail size={14} className="mt-1 shrink-0 text-brand-red" aria-hidden="true" />
+                    <a href={`mailto:${email}`} className="transition-colors hover:text-white">
+                      {email}
+                    </a>
+                  </li>
+                ))}
+                <li className="flex items-start gap-3">
+                  <MapPin size={14} className="mt-1 shrink-0 text-brand-red" aria-hidden="true" />
+                  <span>United States</span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div>
-            <p className="text-[0.63rem] font-semibold uppercase tracking-[0.3em] text-white/35">
-              Navigation
-            </p>
-            <ul className="mt-5 space-y-3">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.label}>
-                  <Link href={item.pageHref} className="text-sm text-white/62 transition-colors hover:text-white">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/privacy/" className="text-sm text-white/62 transition-colors hover:text-white">
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms/" className="text-sm text-white/62 transition-colors hover:text-white">
-                  Terms
-                </Link>
-              </li>
-            </ul>
+          <div className="mt-12 border-t border-white/8 pt-7 text-center text-xs tracking-[0.04em] text-white/35">
+            © 2026 Blind Teknologis. All rights reserved.
           </div>
-
-          <div>
-            <p className="text-[0.63rem] font-semibold uppercase tracking-[0.3em] text-white/35">
-              Contact
-            </p>
-            <ul className="mt-5 space-y-3 text-sm text-white/62">
-              {[
-                CONTACT_EMAILS.general,
-                CONTACT_EMAILS.sales,
-                CONTACT_EMAILS.api,
-                CONTACT_EMAILS.support,
-              ].map((email) => (
-                <li key={email} className="flex items-start gap-3">
-                  <Mail size={14} className="mt-1 shrink-0 text-brand-red" aria-hidden="true" />
-                  <a href={`mailto:${email}`} className="transition-colors hover:text-white">
-                    {email}
-                  </a>
-                </li>
-              ))}
-              <li className="flex items-start gap-3">
-                <MapPin size={14} className="mt-1 shrink-0 text-brand-red" aria-hidden="true" />
-                <span>United States</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 border-t border-white/8 pt-7 text-center text-xs tracking-[0.04em] text-white/35">
-          © 2026 Blind Teknologis. All rights reserved.
         </div>
       </div>
     </footer>

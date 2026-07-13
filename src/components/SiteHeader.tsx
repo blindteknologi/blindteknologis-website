@@ -22,7 +22,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-white/92 backdrop-blur-md">
-      <div className="section-shell relative flex h-[88px] items-center justify-between">
+      <div className="section-shell relative flex h-[104px] items-center justify-between sm:h-[112px]">
         <Link
           href="/"
           aria-label={`${SITE_NAME} home`}
@@ -35,7 +35,7 @@ export function SiteHeader() {
             width={300}
             height={90}
             priority
-            className="h-10 w-auto sm:h-11 lg:h-12"
+            className="h-[60px] w-auto sm:h-[66px] lg:h-[72px]"
           />
         </Link>
 
