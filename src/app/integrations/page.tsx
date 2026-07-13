@@ -1,141 +1,130 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, Link2, RefreshCw, Shield, Zap } from 'lucide-react'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { INTEGRATIONS, SITE_NAME, SITE_URL } from '@/lib/site'
+import Link from 'next/link'
+import { ArrowRight, Cable, Shield, Workflow } from 'lucide-react'
+import { MotionReveal } from '@/components/MotionReveal'
+import { PageHero } from '@/components/PageHero'
+import { SiteFooter } from '@/components/SiteFooter'
+import { SiteHeader } from '@/components/SiteHeader'
+import { SiteShell } from '@/components/SiteShell'
+import { CONTACT_EMAILS, buildMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Integrations',
-  description: 'Blind Teknologis integrates with the shop systems you already use.',
-  openGraph: {
-    title: `Integrations — ${SITE_NAME}`,
-    description: 'Blind Teknologis integrates with the shop systems you already use.',
-    url: `${SITE_URL}/integrations/`,
+export const metadata = buildMetadata({
+  title: 'Integrations',
+  description:
+    'Blind Teknologis is executing Tekmetric API access as the first shop-system integration path for TekBox.',
+  path: '/integrations/',
+})
+
+const principles = [
+  {
+    icon: Workflow,
+    title: 'Sit On Top, Do Not Replace',
+    copy: 'TekBox is a knowledge platform. Shop management systems remain the system of record for jobs, customers, and billing.',
   },
-  alternates: { canonical: `${SITE_URL}/integrations/` },
-}
-
-const benefits = [
-  {
-    icon: Link2,
-    title: 'Connect Your Stack',
-    description:
-      'Our platform is designed to work alongside the management systems, diagnostic tools, and workflows your team relies on every day.',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Minimal Disruption',
-    description:
-      'Integration is built for adoption — not overhaul. Your team keeps working the way they know while gaining new intelligence.',
-  },
-  {
-    icon: Zap,
-    title: 'Real-Time Context',
-    description:
-      'Vehicle and service data flows into the platform so advisors and technicians always have current, accurate information.',
-  },
+  {
+    icon: Cable,
+    title: 'Adapter Interface Layer',
+    copy: 'Vendor-specific mapping stays in adapters. Core intelligence stays vendor-neutral so the platform can expand without rewriting business logic.',
+  },
   {
     icon: Shield,
-    title: 'Enterprise-Grade Security',
-    description:
-      'Data handling follows industry best practices. Your shop information stays protected throughout every integration.',
+    title: 'Honest Status Only',
+    copy: 'We do not publish partner logo walls or claim live integrations that are not operational. Tekmetric is the active first path.',
   },
-]
+] as const
 
 export default function IntegrationsPage() {
   return (
-    <>
-      <Header active="Integrations" />
+    <SiteShell>
+      <SiteHeader />
       <main id="main-content">
-        {/* Page hero */}
-        <section className="relative overflow-hidden bg-hero py-24 text-white sm:py-28">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.10]"
-            style={{
-              backgroundImage: 'url(/images/hero-visual.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-            aria-hidden="true"
-          />
-          <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
-            <p className="text-[11px] font-bold tracking-[0.24em] text-brand-red uppercase">
-              Integrations
-            </p>
-            <h1 className="font-display mt-4 text-3xl font-bold tracking-tight uppercase sm:text-5xl">
-              Works With Your Systems
-            </h1>
-            <p className="mt-6 text-base leading-relaxed text-zinc-300">
-              Blind Teknologis connects with the tools your shop already uses — so you get more
-              intelligence without changing how you work.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Integrations"
+          title="Tekmetric Is the First Execution Path"
+          description="Blind Teknologis is applying for Tekmetric API access to connect TekBox intelligence to real shop workflows. This is an active program — not a speculative partner grid."
+        />
 
-        {/* Integration tiles */}
-        <section className="py-16 sm:py-20" aria-label="Supported integrations">
-          <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {INTEGRATIONS.map((integration) => (
-                <article
-                  key={integration.name}
-                  className="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-5 py-5 transition-all hover:-translate-y-1 hover:shadow-lg"
+        <section className="bg-white py-18 sm:py-24">
+          <div className="section-shell max-w-3xl">
+            <MotionReveal>
+              <h2 className="section-heading">Current Integration Focus</h2>
+              <p className="section-copy mt-5">
+                <strong className="text-charcoal">Tekmetric</strong> is the priority shop management
+                system for first production connectivity. The goal is to map vehicle, job, and
+                workflow context into TekBox through a clean adapter — so advisors get better
+                intelligence without abandoning the tools they already use.
+              </p>
+              <p className="section-copy mt-4">
+                Other shop systems may follow after Tekmetric connectivity is proven. Until an
+                integration is live and verified, it will not appear as a completed partnership on
+                this site.
+              </p>
+              <div className="mt-8 rounded-[18px] border border-black/8 bg-surface p-6">
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-brand-red">
+                  Partner / API Contact
+                </p>
+                <a
+                  href={`mailto:${CONTACT_EMAILS.api}`}
+                  className="mt-3 inline-block text-lg font-semibold text-charcoal hover:text-brand-red"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-light">
-                    <Link2
-                      size={18}
-                      className="text-brand-red"
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div>
-                    <span className="block text-sm font-semibold text-charcoal">
-                      {integration.name}
-                    </span>
-                    <span className="block text-[11px] text-muted">{integration.category}</span>
-                  </div>
-                </article>
-              ))}
-            </div>
+                  {CONTACT_EMAILS.api}
+                </a>
+                <p className="mt-3 text-sm leading-6 text-copy">
+                  Use this address for Tekmetric API application follow-up, technical diligence, and
+                  integration scoping.
+                </p>
+              </div>
+            </MotionReveal>
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="bg-surface-light py-16 sm:py-20" aria-label="Integration benefits">
-          <div className="mx-auto grid max-w-5xl gap-8 px-5 sm:grid-cols-2 sm:px-8">
-            {benefits.map((item) => (
-              <article key={item.title} className="rounded-2xl bg-white p-8 shadow-sm">
-                <div className="mb-4 inline-flex rounded-full border-2 border-brand-red p-3">
-                  <item.icon
-                    size={22}
-                    className="text-brand-red"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
-                </div>
-                <h2 className="text-sm font-bold tracking-[0.06em] text-charcoal uppercase">
-                  {item.title}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
-              </article>
+        <section className="bg-surface py-18 sm:py-24">
+          <div className="section-shell grid gap-4 lg:grid-cols-3">
+            {principles.map((item, index) => (
+              <MotionReveal key={item.title} delay={index * 0.05}>
+                <article className="h-full rounded-[18px] bg-white p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-red/18 bg-red-50 text-brand-red">
+                    <item.icon size={18} aria-hidden="true" />
+                  </div>
+                  <h2 className="mt-5 text-sm font-semibold uppercase tracking-[0.08em] text-charcoal">
+                    {item.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-copy">{item.copy}</p>
+                </article>
+              </MotionReveal>
             ))}
           </div>
+        </section>
 
-          <div className="mx-auto mt-16 max-w-xl px-5 text-center sm:px-8">
-            <p className="text-sm text-muted">Want to discuss integration options for your shop?</p>
-            <Link
-              href="/contact/"
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand-red px-7 py-3.5 text-[11px] font-semibold tracking-[0.12em] text-white uppercase transition-colors hover:bg-brand-red-hover"
-            >
-              Contact Us
-              <ArrowRight size={14} aria-hidden="true" />
-            </Link>
+        <section className="bg-white py-18 sm:py-24">
+          <div className="section-shell">
+            <MotionReveal className="max-w-2xl">
+              <p className="eyebrow">Next Step</p>
+              <h2 className="section-heading mt-4">Need Diligence Materials?</h2>
+              <p className="section-copy mt-5">
+                For Tekmetric partner review, privacy questions, or technical architecture
+                discussion, contact the addresses below. Product vision and feature scope are
+                published on the Products page.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={`mailto:${CONTACT_EMAILS.api}`}
+                  className="pill-button bg-brand-red text-white hover:bg-brand-red-strong"
+                >
+                  Email API Team
+                  <ArrowRight size={14} aria-hidden="true" />
+                </a>
+                <Link
+                  href="/products/"
+                  className="pill-button border border-black/10 bg-white text-charcoal hover:bg-surface"
+                >
+                  View TekBox Features
+                </Link>
+              </div>
+            </MotionReveal>
           </div>
         </section>
       </main>
-      <Footer />
-    </>
+      <SiteFooter />
+    </SiteShell>
   )
 }

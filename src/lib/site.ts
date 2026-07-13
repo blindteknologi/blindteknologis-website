@@ -1,159 +1,189 @@
+import type { Metadata } from 'next'
+
 export const SITE_NAME = 'Blind Teknologis'
 export const SITE_URL = 'https://blindteknologis.com'
-export const SITE_DESCRIPTION =
-  'Intelligent software for automotive service operations. AI-powered tools that help repair shops recover revenue, save advisor time, and modernize operations.'
-export const CONTACT_EMAIL = 'info@blindteknologis.com'
+export const DEFAULT_DESCRIPTION =
+  'Blind Teknologis builds TekBox — a knowledge platform that helps automotive repair shops recover missed revenue, reduce paperwork, and deliver clearer service advisor intelligence.'
 
-export const CONTACT_DEPARTMENTS = [
+export const NAV_ITEMS = [
+  { label: 'Home', homeHref: '#top', pageHref: '/' },
+  { label: 'About', homeHref: '#about', pageHref: '/about/' },
+  { label: 'Products', homeHref: '#products', pageHref: '/products/' },
+  { label: 'Integrations', homeHref: '#integrations', pageHref: '/integrations/' },
+  { label: 'Contact', homeHref: '#contact', pageHref: '/contact/' },
+] as const
+
+export const CONTACT_EMAILS = {
+  general: 'info@blindteknologis.com',
+  sales: 'sales@blindteknologis.com',
+  api: 'api@blindteknologis.com',
+  support: 'support@blindteknologis.com',
+  privacy: 'privacy@blindteknologis.com',
+} as const
+
+export const HERO_BULLETS = [
+  'Identify missed opportunities and recover more approved work.',
+  'Give advisors back time by reducing manual write-up and follow-up steps.',
+  'Improve consistency across inspections, recommendations, and delivery.',
+  'Create a clearer customer experience without adding more paperwork.',
+] as const
+
+export const FEATURE_STRIP = [
   {
-    id: 'info',
-    email: 'info@blindteknologis.com',
-    label: 'General Info',
-    description: 'General inquiries about Blind Teknologis and how we can help your shop.',
-    formType: 'business' as const,
+    title: 'Save Hours Daily',
+    description:
+      'Reduce repetitive documentation and manual lookups so advisors spend more time with customers.',
   },
   {
-    id: 'sales',
-    email: 'sales@blindteknologis.com',
-    label: 'Sales',
-    description: 'Early access requests, pricing discussions, and partnership inquiries.',
-    formType: 'business' as const,
+    title: 'Improve Accuracy',
+    description:
+      'Bring the right vehicle and service context forward before details are missed or rework begins.',
   },
   {
-    id: 'api',
-    email: 'api@blindteknologis.com',
-    label: 'API & Integrations',
-    description: 'Technical connectivity, integration questions, and API access.',
-    formType: 'business' as const,
+    title: 'Deliver Better Experiences',
+    description:
+      'Make repair recommendations easier to explain, easier to approve, and easier to trust.',
   },
   {
-    id: 'support',
-    email: 'support@blindteknologis.com',
-    label: 'Support',
-    description: 'Product support, technical assistance, and troubleshooting.',
-    formType: 'support' as const,
-  },
-  {
-    id: 'privacy',
-    email: 'privacy@blindteknologis.com',
-    label: 'Privacy',
-    description: 'Privacy policy questions, data requests, and compliance matters.',
-    formType: 'privacy' as const,
+    title: 'Increase Profitability',
+    description:
+      'Recover missed revenue opportunities while building a more consistent service process.',
   },
 ] as const
 
-export type ContactDepartmentId = (typeof CONTACT_DEPARTMENTS)[number]['id']
-
-export const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-  { href: '/products/', label: 'Products' },
-  { href: '/integrations/', label: 'Integrations' },
-  { href: '/contact/', label: 'Contact' },
-] as const
-
-export const PLATFORM_HERO_MODULES = [
+export const PLATFORM_CARDS = [
+  {
+    title: 'Vehicle Intelligence',
+    description: 'Decode a VIN and compose a clear view of vehicle identity, capabilities, and service context.',
+    href: '/products/',
+  },
   {
     title: 'Maintenance Intelligence',
-    description: 'Pull history, surface recommendations, and show customers with clarity.',
+    description: 'Evaluate due, due soon, overdue, and not-applicable services from mileage and history.',
+    href: '/products/',
   },
   {
-    title: 'Technician Story Rewriting',
-    description: 'Transform technician notes into clear, customer-friendly summaries.',
-  },
-  {
-    title: 'Comeback Alerts',
-    description: 'Get ahead of potential comebacks before they impact your shop.',
+    title: 'Evidence & Honesty',
+    description: 'Show why a fact is known or unknown — never invent automotive certainty.',
+    href: '/products/',
     highlight: true,
   },
   {
-    title: 'Shop System Integrations',
-    description: 'Seamlessly connect with your existing shop management systems.',
+    title: 'Service History',
+    description: 'Capture prior work so recommendations stay grounded in what the vehicle has already received.',
+    href: '/products/',
   },
   {
-    title: 'VIN Decoding',
-    description: 'Decode more data points and uncover what other tools miss.',
+    title: 'Shop System Integrations',
+    description: 'Sit on top of existing shop systems — starting with Tekmetric — without replacing them.',
+    href: '/integrations/',
+  },
+  {
+    title: 'Service Advisor Dashboard',
+    description: 'Give advisors one place to review decode, capabilities, maintenance, and evidence together.',
+    href: '/products/',
   },
 ] as const
 
-export const PLATFORM_FUTURE_MODULE = {
-  title: 'Future AI Modules',
-  description: 'Expanding capabilities built for the next generation of shop intelligence.',
-} as const
-
-export const PLATFORM_MODULES = [...PLATFORM_HERO_MODULES, PLATFORM_FUTURE_MODULE] as const
-
-export const PRODUCTS = [
+/** Real TekBox features verified in product codebase — public Products page source of truth. */
+export const TEKBOX_FEATURES = [
   {
-    id: 'tekbox',
-    title: 'TekBox Platform',
+    title: 'VIN Decoding & Vehicle Identification',
     description:
-      'The unified foundation for vehicle intelligence, workflow automation, and shop operations.',
+      'Normalize a VIN into year, make, model, engine, and related identity fields using deterministic decode paths.',
   },
   {
-    id: 'maintenance-intelligence',
+    title: 'Vehicle Capability Enrichment',
+    description:
+      'Surface mechanical and capability signals across major vehicle domains with provenance on every fact.',
+  },
+  {
     title: 'Maintenance Intelligence',
     description:
-      'Surface maintenance context and service requirements with clarity and confidence.',
+      'Evaluate maintenance status (due, due soon, overdue, not applicable) from mileage and service history.',
   },
   {
-    id: 'technician-ai',
-    title: 'Technician AI',
+    title: 'Vehicle Intelligence Report',
     description:
-      'Transform technical repair notes into clear, customer-friendly explanations.',
+      'Compose decode, capabilities, maintenance, and evidence into one advisor-ready intelligence view.',
   },
   {
-    id: 'inspection-intelligence',
-    title: 'Inspection Intelligence',
+    title: 'Evidence & Data-Gap Honesty',
     description:
-      'Turn digital inspections into actionable insights and revenue opportunities.',
+      'Preserve raw source data and clearly mark UNKNOWN when a fact is unverified — fail closed, never invent.',
   },
   {
-    id: 'vehicle-health',
-    title: 'Digital Vehicle Health Reports',
+    title: 'Service History',
     description:
-      'Deliver professional vehicle health summaries that build trust and drive approvals.',
+      'Add, edit, and import service history so recommendations stay grounded in prior work.',
   },
   {
-    id: 'workflow-automation',
-    title: 'Workflow Automation',
+    title: 'Maintenance Timeline',
     description:
-      'Automate repetitive tasks so your team focuses on customers and repairs.',
+      'Visualize previous, current, and upcoming service needs on a clear timeline for advisor conversations.',
   },
   {
-    id: 'business-analytics',
-    title: 'Business Analytics',
+    title: 'Service Advisor Dashboard',
     description:
-      'Track performance, identify trends, and make data-driven decisions for your shop.',
+      'Browser workspace for advisors to decode a VIN and review intelligence, maintenance, and evidence panels.',
   },
   {
-    id: 'future-marketplace',
-    title: 'Future Marketplace',
+    title: 'Knowledge Mining Foundation',
     description:
-      'An expanding ecosystem of integrations, modules, and partner solutions.',
+      'Offline document-to-knowledge pipeline that builds provenance-tracked records for future live knowledge.',
+  },
+  {
+    title: 'Shop System Integration Layer',
+    description:
+      'Vendor-neutral adapter architecture designed to sit alongside shop management systems — Tekmetric first.',
   },
 ] as const
 
-export const INTEGRATIONS = [
-  { name: 'Tekmetric', category: 'Shop Management' },
-  { name: 'Shop-Ware', category: 'Shop Management' },
-  { name: 'Mitchell1', category: 'Shop Management' },
-  { name: 'Protractor', category: 'Shop Management' },
-  { name: 'NAPA TRACS', category: 'Shop Management' },
-  { name: 'CCC', category: 'Estimating' },
-  { name: 'VIN Decoders', category: 'Vehicle Data' },
-  { name: 'Open API', category: 'Custom Integration' },
-] as const
+export function absoluteUrl(path = '/') {
+  const normalized = path.startsWith('/') ? path : `/${path}`
+  return new URL(normalized, SITE_URL).toString()
+}
 
-export const ABOUT_STATS = [
-  { value: '82+', label: 'Hours Saved Monthly', sub: 'Per service advisor' },
-  { value: '24', label: 'Opportunities Recovered', sub: 'Average per month' },
-  { value: '18%', label: 'Revenue Growth', sub: 'From missed services' },
-  { value: '32', label: 'Systems Scanned', sub: 'Per vehicle profile' },
-] as const
+export function buildMetadata({
+  title,
+  description,
+  path = '/',
+}: {
+  title?: string
+  description?: string
+  path?: string
+}): Metadata {
+  const fullTitle = title
+    ? `${title} | ${SITE_NAME}`
+    : `${SITE_NAME} | Automotive Service Intelligence`
+  const fullDescription = description ?? DEFAULT_DESCRIPTION
 
-export const SOCIAL_LINKS = [
-  { href: 'https://linkedin.com/company/blindteknologis', label: 'LinkedIn' },
-  { href: 'https://x.com/blindteknologis', label: 'X (Twitter)' },
-  { href: 'https://github.com/blindteknologi', label: 'GitHub' },
-] as const
+  return {
+    title: fullTitle,
+    description: fullDescription,
+    alternates: {
+      canonical: path,
+    },
+    openGraph: {
+      title: fullTitle,
+      description: fullDescription,
+      url: absoluteUrl(path),
+      siteName: SITE_NAME,
+      type: 'website',
+      images: [
+        {
+          url: absoluteUrl('/images/hero-visual.png'),
+          width: 1536,
+          height: 1024,
+          alt: `${SITE_NAME} hero visual`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description: fullDescription,
+      images: [absoluteUrl('/images/hero-visual.png')],
+    },
+  }
+}

@@ -1,72 +1,91 @@
+import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
-import { SITE_NAME, SITE_URL } from '@/lib/site'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-})
+import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, absoluteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: `${SITE_NAME} — Automotive Service Intelligence`,
-    template: `%s | ${SITE_NAME}`,
+  title: `${SITE_NAME} | Shop Intelligence for Modern Service Operations`,
+  description: DEFAULT_DESCRIPTION,
+  alternates: {
+    canonical: '/',
   },
-  description:
-    'Intelligent software for automotive repair shops. Recover missed revenue, save advisor time, and deliver better customer experiences — powered by AI.',
+  keywords: [
+    'automotive service software',
+    'repair shop software',
+    'service advisor efficiency',
+    'digital inspections',
+    'shop workflow automation',
+    'missed revenue recovery',
+  ],
+  applicationName: SITE_NAME,
+  category: 'business',
   icons: {
     icon: '/favicon.png',
     apple: '/logo.png',
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Automotive Service Intelligence`,
-    description:
-      'Intelligent software for automotive repair shops. Recover missed revenue, save advisor time, and deliver better customer experiences — powered by AI.',
-    images: [{ url: '/images/hero-visual.png', width: 1200, height: 630, alt: SITE_NAME }],
+    title: `${SITE_NAME} | Shop Intelligence for Modern Service Operations`,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: absoluteUrl('/images/hero-visual.png'),
+        width: 1536,
+        height: 1024,
+        alt: `${SITE_NAME} platform preview`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} — Automotive Service Intelligence`,
-    description:
-      'Intelligent software for automotive repair shops. Recover missed revenue, save advisor time, and deliver better customer experiences.',
-    images: ['/images/hero-visual.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
+    title: `${SITE_NAME} | Shop Intelligence for Modern Service Operations`,
+    description: DEFAULT_DESCRIPTION,
+    images: [absoluteUrl('/images/hero-visual.png')],
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: absoluteUrl('/logo.png'),
+  email: 'info@blindteknologis.com',
+  description: DEFAULT_DESCRIPTION,
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: DEFAULT_DESCRIPTION,
+}
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen bg-page-bg">
-        {/*
-          Floating white card container.
-          overflow: clip clips rounded corners without creating a scroll container,
-          so sticky positioning on the header still works correctly.
-        */}
-        <div
-          className="mx-auto max-w-[1600px] bg-white overflow-clip
-                     sm:my-6 sm:rounded-[22px]
-                     sm:shadow-[0_4px_40px_rgba(0,0,0,0.10),0_1px_4px_rgba(0,0,0,0.06)]"
+    <html lang="en">
+      <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-charcoal"
         >
-          {children}
-        </div>
+          Skip to content
+        </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <div className="min-h-screen px-0 md:px-4 md:py-5 lg:px-6">{children}</div>
       </body>
     </html>
   )

@@ -1,17 +1,19 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
-
-  --color-brand-red: #d71920;
-  --color-brand-red-hover: #b8141a;
-  --color-charcoal: #1a1a1a;
-  --color-charcoal-mid: #2b2b2b;
-  --color-hero: #111111;
-  --color-muted: #6b7280;
-  --color-surface-light: #f5f6f7;
-  --color-page-bg: #f2f2f2;
+  --font-sans:
+    'Aptos', 'Segoe UI', 'Helvetica Neue', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    'Bahnschrift SemiCondensed', 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+  --color-site-bg: #f2f2f2;
+  --color-surface: #f6f6f6;
+  --color-surface-strong: #efefef;
+  --color-brand-red: #e22726;
+  --color-brand-red-strong: #c91e1d;
+  --color-charcoal: #141414;
+  --color-charcoal-soft: #212121;
+  --color-copy: #5d6166;
+  --color-copy-dark: #2e3135;
 }
 
 @layer base {
@@ -20,13 +22,53 @@
   }
 
   body {
-    @apply min-h-screen bg-page-bg font-sans text-charcoal antialiased;
+    @apply bg-site-bg font-sans text-charcoal antialiased;
   }
 
-  *,
-  *::before,
-  *::after {
+  * {
     box-sizing: border-box;
+  }
+
+  img {
+    display: block;
+  }
+
+  ::selection {
+    background: rgb(226 39 38 / 18%);
+    color: #141414;
+  }
+}
+
+@layer components {
+  .section-shell {
+    /* Base gutters + 1in additional left/right margin on all pages */
+    @apply mx-auto w-full max-w-[1440px] px-[calc(1.5rem+1in)] sm:px-[calc(2.5rem+1in)] lg:px-[calc(3rem+1in)];
+  }
+
+  .section-heading {
+    @apply font-display text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-charcoal sm:text-[3rem];
+  }
+
+  .section-copy {
+    @apply text-[0.95rem] leading-7 text-copy;
+  }
+
+  .eyebrow {
+    @apply text-[0.64rem] font-semibold uppercase tracking-[0.32em] text-brand-red;
+  }
+
+  .pill-button {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red;
+  }
+
+  .panel-shadow {
+    box-shadow:
+      0 26px 70px rgba(17, 24, 39, 0.08),
+      0 2px 10px rgba(17, 24, 39, 0.03);
+  }
+
+  .soft-ring {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -34,19 +76,10 @@
   .font-display {
     font-family: var(--font-display);
   }
-
-  .text-balance {
-    text-wrap: balance;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
   }
 }
