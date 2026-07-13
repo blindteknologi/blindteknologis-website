@@ -32,8 +32,8 @@ export function SiteHeader() {
           <Image
             src="/logo.png"
             alt={SITE_NAME}
-            width={400}
-            height={100}
+            width={300}
+            height={90}
             priority
             className="h-10 w-auto sm:h-11 lg:h-12"
           />

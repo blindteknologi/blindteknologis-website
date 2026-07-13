@@ -41,8 +41,8 @@
 
 @layer components {
   .section-shell {
-    /* Base gutters + 1in additional left/right margin on all pages */
-    @apply mx-auto w-full max-w-[1440px] px-[calc(1.5rem+1in)] sm:px-[calc(2.5rem+1in)] lg:px-[calc(3rem+1in)];
+    /* +1in side margins on desktop; keep usable gutters on small screens */
+    @apply mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[calc(2.5rem+1in)];
   }
 
   .section-heading {

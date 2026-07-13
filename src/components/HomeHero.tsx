@@ -1,19 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, CircleCheck } from 'lucide-react'
 import { HERO_BULLETS } from '@/lib/site'
 
 export function HomeHero() {
-  const reduceMotion = useReducedMotion()
-
   return (
     <section
       id="top"
       className="relative isolate overflow-hidden bg-charcoal text-white [scroll-margin-top:92px]"
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div
           className="absolute inset-0 opacity-[0.28]"
           style={{
@@ -29,12 +26,7 @@ export function HomeHero() {
       </div>
 
       <div className="section-shell relative py-8 sm:py-10 lg:py-12">
-        <motion.div
-          initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-[36rem]"
-        >
+        <div className="max-w-[36rem]">
           <p className="eyebrow">Built for Shop Owners</p>
           <h1 className="font-display mt-3 text-[2.4rem] leading-[0.95] font-semibold uppercase tracking-[0.01em] sm:text-[3.1rem] lg:text-[3.55rem]">
             Stop Losing Jobs.
@@ -49,21 +41,14 @@ export function HomeHero() {
           </p>
 
           <ul className="mt-5 space-y-2.5">
-            {HERO_BULLETS.map((bullet, index) => (
-              <motion.li
+            {HERO_BULLETS.map((bullet) => (
+              <li
                 key={bullet}
-                initial={reduceMotion ? undefined : { opacity: 0, y: 10 }}
-                animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: reduceMotion ? 0 : 0.08 + index * 0.05,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
                 className="flex items-start gap-3 text-sm leading-6 text-white/78"
               >
                 <CircleCheck size={16} className="mt-1 shrink-0 text-brand-red" aria-hidden="true" />
                 <span>{bullet}</span>
-              </motion.li>
+              </li>
             ))}
           </ul>
 
@@ -82,7 +67,7 @@ export function HomeHero() {
               Explore Features
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

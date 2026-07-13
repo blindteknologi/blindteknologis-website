@@ -3,11 +3,11 @@
 import type { ReactNode } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 
+/** Reveal on scroll without hiding content before hydration / IO (static export safe). */
 export function MotionReveal({
   children,
   className,
   delay = 0,
-  amount = 0.2,
 }: {
   children: ReactNode
   className?: string
@@ -19,10 +19,10 @@ export function MotionReveal({
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? undefined : { opacity: 0, y: 22 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay }}
+      initial={reduceMotion ? undefined : { y: 16 }}
+      whileInView={reduceMotion ? undefined : { y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>

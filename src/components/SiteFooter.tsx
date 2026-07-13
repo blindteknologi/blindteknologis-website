@@ -33,15 +33,15 @@ export function SiteFooter() {
       <div className="section-shell py-14 sm:py-16">
         <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_0.9fr]">
           <div>
-            <div className="inline-block rounded-2xl bg-white px-4 py-3">
+            <Link href="/" aria-label={`${SITE_NAME} home`} className="inline-block">
               <Image
-                src="/logo.png"
+                src="/logo-on-dark.png"
                 alt={SITE_NAME}
-                width={400}
-                height={100}
+                width={300}
+                height={90}
                 className="h-10 w-auto"
               />
-            </div>
+            </Link>
             <p className="mt-5 max-w-xs text-sm leading-7 text-white/55">
               Intelligent software for automotive service operations. Built to help shops save time,
               improve accuracy, and recover more missed revenue.
