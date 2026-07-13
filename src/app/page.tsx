@@ -54,57 +54,62 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Block 3 — hero image background */}
-        <section
-          id="about"
-          className="relative overflow-hidden bg-charcoal py-18 text-white sm:py-24 [scroll-margin-top:92px]"
-        >
-          <SectionBackdrop tone="dark" />
-          <div className="section-shell relative grid gap-12 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start">
-            <MotionReveal>
-              <p className="eyebrow">Our Platform</p>
-              <h2 className="font-display mt-4 text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-white sm:text-[3rem]">
-                Intelligence That
-                <br />
-                Powers Your Shop
-              </h2>
-              <p className="mt-5 max-w-sm text-[0.95rem] leading-7 text-white/70">
-                TekBox is a knowledge platform for automotive service operations — vehicle
-                intelligence, maintenance context, and advisor tooling that sit alongside the systems
-                you already run.
-              </p>
-              <Link
-                href="/products/"
-                className="mt-8 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-white"
-              >
-                Explore the Platform
-                <ArrowRight size={14} aria-hidden="true" />
-              </Link>
-            </MotionReveal>
+        {/* Block 3 — hero image background (content-width aligned) */}
+        <section id="about" className="bg-white py-6 sm:py-8 [scroll-margin-top:92px]">
+          <div className="section-shell">
+            <div className="relative overflow-hidden rounded-[10px] bg-charcoal px-6 py-14 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+              <SectionBackdrop tone="dark" />
+              <div className="relative grid gap-12 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start">
+                <MotionReveal>
+                  <p className="eyebrow">Our Platform</p>
+                  <h2 className="font-display mt-4 text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-white sm:text-[3rem]">
+                    Intelligence That
+                    <br />
+                    Powers Your Shop
+                  </h2>
+                  <p className="mt-5 max-w-sm text-[0.95rem] leading-7 text-white/70">
+                    TekBox is a knowledge platform for automotive service operations — vehicle
+                    intelligence, maintenance context, and advisor tooling that sit alongside the
+                    systems you already run.
+                  </p>
+                  <Link
+                    href="/products/"
+                    className="mt-8 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-white"
+                  >
+                    Explore the Platform
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
+                </MotionReveal>
 
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-              {PLATFORM_CARDS.map((card, index) => {
-                const Icon = platformIcons[index]
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                  {PLATFORM_CARDS.map((card, index) => {
+                    const Icon = platformIcons[index]
 
-                return (
-                  <MotionReveal key={card.title} delay={index * 0.04}>
-                    <Link
-                      href={card.href}
-                      className="group flex h-full min-h-[200px] flex-col rounded-[18px] bg-black/45 px-5 py-5 text-white backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"
-                    >
-                      <Icon
-                        size={18}
-                        className={'highlight' in card && card.highlight ? 'text-brand-red' : 'text-white/88'}
-                        aria-hidden="true"
-                      />
-                      <h3 className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.14em]">
-                        {card.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-6 text-white/58">{card.description}</p>
-                    </Link>
-                  </MotionReveal>
-                )
-              })}
+                    return (
+                      <MotionReveal key={card.title} delay={index * 0.04}>
+                        <Link
+                          href={card.href}
+                          className="group flex h-full min-h-[200px] flex-col rounded-[18px] bg-black/45 px-5 py-5 text-white backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"
+                        >
+                          <Icon
+                            size={18}
+                            className={
+                              'highlight' in card && card.highlight
+                                ? 'text-brand-red'
+                                : 'text-white/88'
+                            }
+                            aria-hidden="true"
+                          />
+                          <h3 className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.14em]">
+                            {card.title}
+                          </h3>
+                          <p className="mt-3 text-sm leading-6 text-white/58">{card.description}</p>
+                        </Link>
+                      </MotionReveal>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -140,45 +145,46 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Block 5 — hero image background */}
-        <section
-          id="products"
-          className="relative overflow-hidden bg-charcoal py-18 text-white sm:py-24 [scroll-margin-top:92px]"
-        >
-          <SectionBackdrop tone="dark" />
-          <div className="section-shell relative">
-            <MotionReveal className="max-w-3xl">
-              <p className="eyebrow">Products</p>
-              <h2 className="font-display mt-4 text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-white sm:text-[3rem]">
-                TekBox Is In Development
-              </h2>
-              <p className="mt-5 max-w-2xl text-[0.95rem] leading-7 text-white/70">
-                We are building a production knowledge platform for service advisors. Below are the
-                real capabilities in the TekBox product — not speculative marketing modules.
-              </p>
-            </MotionReveal>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {TEKBOX_FEATURES.slice(0, 6).map((feature, index) => (
-                <MotionReveal key={feature.title} delay={index * 0.04}>
-                  <article className="rounded-[18px] border border-white/10 bg-black/35 p-5 backdrop-blur-sm">
-                    <h3 className="text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-white">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-white/60">{feature.description}</p>
-                  </article>
+        {/* Block 5 — hero image background (content-width aligned) */}
+        <section id="products" className="bg-white py-6 sm:py-8 [scroll-margin-top:92px]">
+          <div className="section-shell">
+            <div className="relative overflow-hidden rounded-[10px] bg-charcoal px-6 py-14 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+              <SectionBackdrop tone="dark" />
+              <div className="relative">
+                <MotionReveal className="max-w-3xl">
+                  <p className="eyebrow">Products</p>
+                  <h2 className="font-display mt-4 text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-white sm:text-[3rem]">
+                    TekBox Is In Development
+                  </h2>
+                  <p className="mt-5 max-w-2xl text-[0.95rem] leading-7 text-white/70">
+                    We are building a production knowledge platform for service advisors. Below are
+                    the real capabilities in the TekBox product — not speculative marketing modules.
+                  </p>
                 </MotionReveal>
-              ))}
-            </div>
 
-            <div className="mt-8">
-              <Link
-                href="/products/"
-                className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-white"
-              >
-                View Full Feature List
-                <ArrowRight size={14} aria-hidden="true" />
-              </Link>
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  {TEKBOX_FEATURES.slice(0, 6).map((feature, index) => (
+                    <MotionReveal key={feature.title} delay={index * 0.04}>
+                      <article className="rounded-[18px] border border-white/10 bg-black/35 p-5 backdrop-blur-sm">
+                        <h3 className="text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-white">
+                          {feature.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-6 text-white/60">{feature.description}</p>
+                      </article>
+                    </MotionReveal>
+                  ))}
+                </div>
+
+                <div className="mt-8">
+                  <Link
+                    href="/products/"
+                    className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-white"
+                  >
+                    View Full Feature List
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
