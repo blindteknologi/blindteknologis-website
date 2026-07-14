@@ -1,0 +1,68 @@
+---
+description: UI/UX and branding governance for the Blind Teknologis website — apply whenever proposing, generating, or changing anything user-facing (pages, components, hero sections, footer, logo treatment, color/design direction, copy tone).
+alwaysApply: false
+---
+
+# UI/UX & Branding Governance — Blind Teknologis Website
+
+Tyson holds final approval over all user-facing design decisions on this site. This is the
+one part of the project he wants to be personally involved in — do not ship a design
+decision without his sign-off, even if the change looks small.
+
+## Design Review Standard
+
+- Always present one primary recommendation plus at least two clearly, visibly different
+  alternatives, with a tradeoff explanation for each.
+- Never present multiple options that are near-identical variants of each other unless
+  Tyson explicitly asked for variations on one specific concept.
+- Always provide a visual preview (screenshot of the actual rendered page/component, or a
+  generated concept image) for any meaningful design decision — never describe a design
+  only in prose. Use a real browser screenshot of the running `npm run dev` site whenever
+  the component already exists; use image generation only for pre-implementation concept
+  exploration.
+
+## Logo Rules (Permanent)
+
+The approved Blind Teknologis logo must be preserved exactly.
+
+- **Allowed changes:** container shape, background, padding, placement, scale,
+  border-radius.
+- **Not allowed:** redrawing, font changes, altering lettering, simplifying, or text
+  replacement.
+- Current assets: `public/logo.png` (black/red, for light backgrounds — header) and
+  `public/logo-on-dark.png` (white/red, for dark backgrounds — footer). Do not introduce a
+  third variant without checking these two first.
+- If the current export looks soft at retina sizes, re-export at higher resolution
+  (600×180 / 900×270) — do not upscale the existing file or redraw the mark.
+
+## Current Approved Design Direction
+
+- **Blind Teknologis (company, this site):** premium, enterprise, modern, minimal,
+  high-end SaaS/industrial-equipment feel (think Palantir/Stripe-adjacent, not "AI
+  startup" or "racing/gaming"). Palette: charcoal/near-black background, white primary
+  text, metallic red accent used sparingly — roughly a 90% neutral / 10% red accent ratio.
+  Do not let red dominate the composition.
+- **TekBox (product, referenced within this site):** may diverge from the parent palette
+  (dark navy + orange has been explored); industrial/diagnostic-tool visual motif
+  ("everything you need is in here") is the strongest validated concept so far. TekBox is
+  referenced as the product Blind Teknologis builds — do not present it as the public
+  company brand.
+- Layout convention on this site: alternating white / dark-inset content bands, all
+  content constrained to the same left/right margin (`.section-shell` in
+  `src/app/globals.css`) across hero, feature bands, and footer — keep new sections
+  consistent with this rhythm unless Tyson explicitly asks to break it.
+- Never claim an integration exists that hasn't shipped (e.g. say "in development," not
+  "supported"). Never name the underlying AI vendors/models in public-facing copy. Never
+  use invented or unverified statistics in marketing copy. Never show a partner/integration
+  logo wall with unverified or placeholder logos.
+
+## Process
+
+Before generating new UI/marketing visuals, briefly restate which of the above constraints
+apply, then produce the multi-option comparison. Do not iterate on a single direction for
+many small rounds when a design decision is genuinely undecided — surface the distinct
+options up front instead.
+
+For hands-on visual concept generation (new page layouts, hero treatments, brand
+explorations for web, app, or any other surface), delegate to the UI/UX Designer agent —
+see `.cursor/agents/ui-ux-designer.md`.
