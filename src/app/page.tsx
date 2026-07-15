@@ -1,27 +1,20 @@
 import Link from 'next/link'
-import {
-  BarChart3,
-  BrainCircuit,
-  ClipboardList,
-  Gauge,
-  ShieldCheck,
-  Wrench,
-} from 'lucide-react'
+import { FileCheck2, PlugZap, ShieldCheck, Wrench } from 'lucide-react'
 import { MotionReveal } from '@/components/MotionReveal'
 import { HomeHero } from '@/components/HomeHero'
 import { SectionBackdrop } from '@/components/SectionBackdrop'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteShell } from '@/components/SiteShell'
-import { FEATURE_STRIP, PLATFORM_CARDS, TEKBOX_FEATURES, buildMetadata } from '@/lib/site'
-import { ArrowRight, Clock3, Target, Users } from 'lucide-react'
+import { ENGINEERING_PRINCIPLES, FEATURE_STRIP, buildMetadata } from '@/lib/site'
+import { ArrowRight, Clock3, Target, Users, BarChart3 } from 'lucide-react'
 
 export const metadata = buildMetadata({
   path: '/',
 })
 
 const featureIcons = [Clock3, Target, Users, BarChart3]
-const platformIcons = [ClipboardList, Wrench, ShieldCheck, Gauge, BrainCircuit, BarChart3]
+const principleIcons = [ShieldCheck, FileCheck2, PlugZap, Wrench]
 
 export default function HomePage() {
   return (
@@ -61,49 +54,51 @@ export default function HomePage() {
               <SectionBackdrop tone="dark" />
               <div className="relative grid gap-12 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start">
                 <MotionReveal>
-                  <p className="eyebrow">Our Platform</p>
+                  <p className="eyebrow">How We Build</p>
                   <h2 className="font-display mt-4 text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-white sm:text-[3rem]">
-                    Intelligence That
+                    Software Built
                     <br />
-                    Powers Your Shop
+                    Like Infrastructure
                   </h2>
                   <p className="mt-5 max-w-sm text-[0.95rem] leading-7 text-white/70">
-                    TekBox is a knowledge platform for automotive service operations — vehicle
-                    intelligence, maintenance context, and advisor tooling that sit alongside the
-                    systems you already run.
+                    Blind Teknologis designs software for automotive service operations. Our first
+                    product, TekBox, is in active development — we&apos;ll share a full walkthrough
+                    with real screenshots as it nears completion.
                   </p>
                   <Link
-                    href="/products/"
+                    href="/about/"
                     className="mt-8 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-white"
                   >
-                    Explore the Platform
+                    Learn Our Approach
                     <ArrowRight size={14} aria-hidden="true" />
                   </Link>
                 </MotionReveal>
 
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                  {PLATFORM_CARDS.map((card, index) => {
-                    const Icon = platformIcons[index]
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {ENGINEERING_PRINCIPLES.map((principle, index) => {
+                    const Icon = principleIcons[index]
 
                     return (
-                      <MotionReveal key={card.title} delay={index * 0.04}>
+                      <MotionReveal key={principle.title} delay={index * 0.04}>
                         <Link
-                          href={card.href}
-                          className="group flex h-full min-h-[200px] flex-col rounded-[18px] bg-black/45 px-5 py-5 text-white backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"
+                          href={principle.href}
+                          className="group flex h-full min-h-[190px] flex-col rounded-[18px] bg-black/45 px-5 py-5 text-white backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1"
                         >
                           <Icon
                             size={18}
                             className={
-                              'highlight' in card && card.highlight
+                              'highlight' in principle && principle.highlight
                                 ? 'text-brand-red'
                                 : 'text-white/88'
                             }
                             aria-hidden="true"
                           />
                           <h3 className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.14em]">
-                            {card.title}
+                            {principle.title}
                           </h3>
-                          <p className="mt-3 text-sm leading-6 text-white/58">{card.description}</p>
+                          <p className="mt-3 text-sm leading-6 text-white/58">
+                            {principle.description}
+                          </p>
                         </Link>
                       </MotionReveal>
                     )
@@ -145,47 +140,34 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Block 5 — hero image background (content-width aligned) */}
-        <section id="products" className="bg-white py-6 sm:py-8 [scroll-margin-top:92px]">
-          <div className="section-shell">
-            <div className="relative overflow-hidden rounded-[10px] bg-charcoal px-6 py-14 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24">
-              <SectionBackdrop tone="dark" />
-              <div className="relative">
-                <MotionReveal className="max-w-3xl">
-                  <p className="eyebrow">Products</p>
-                  <h2 className="font-display mt-4 text-[2.55rem] leading-[0.96] font-semibold uppercase tracking-[0.01em] text-white sm:text-[3rem]">
-                    TekBox Is In Development
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-[0.95rem] leading-7 text-white/70">
-                    We are building a production knowledge platform for service advisors. Below are
-                    the real capabilities in the TekBox product — not speculative marketing modules.
-                  </p>
-                </MotionReveal>
-
-                <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                  {TEKBOX_FEATURES.slice(0, 6).map((feature, index) => (
-                    <MotionReveal key={feature.title} delay={index * 0.04}>
-                      <article className="rounded-[18px] border border-white/10 bg-black/35 p-5 backdrop-blur-sm">
-                        <h3 className="text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-white">
-                          {feature.title}
-                        </h3>
-                        <p className="mt-3 text-sm leading-6 text-white/60">{feature.description}</p>
-                      </article>
-                    </MotionReveal>
-                  ))}
-                </div>
-
-                <div className="mt-8">
-                  <Link
-                    href="/products/"
-                    className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-white"
-                  >
-                    View Full Feature List
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </Link>
-                </div>
-              </div>
-            </div>
+        {/* Block 5 — white, company-level product framing (feature-by-feature detail lives on /products/) */}
+        <section id="products" className="bg-white py-18 sm:py-24 [scroll-margin-top:92px]">
+          <div className="section-shell max-w-3xl">
+            <MotionReveal>
+              <p className="eyebrow">Products</p>
+              <h2 className="section-heading mt-4">
+                TekBox Is In
+                <br />
+                Active Development
+              </h2>
+              <p className="section-copy mt-5">
+                TekBox is our first product — a knowledge platform for automotive service
+                operations, built around vehicle intelligence, maintenance context, and honest
+                handling of what is and isn&apos;t yet known about a vehicle.
+              </p>
+              <p className="section-copy mt-4">
+                We&apos;re holding the full product tour until it&apos;s ready to show properly,
+                with real screenshots of the running system rather than a speculative feature
+                list. The name TekBox itself may change before that day comes.
+              </p>
+              <Link
+                href="/products/"
+                className="mt-8 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-red transition-colors hover:text-brand-red-strong"
+              >
+                Current Product Notes
+                <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+            </MotionReveal>
           </div>
         </section>
 

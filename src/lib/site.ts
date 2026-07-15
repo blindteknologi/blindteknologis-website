@@ -51,37 +51,32 @@ export const FEATURE_STRIP = [
   },
 ] as const
 
-export const PLATFORM_CARDS = [
+/** Company-level engineering principles — homepage altitude. Feature-by-feature detail lives on /products/. */
+export const ENGINEERING_PRINCIPLES = [
   {
-    title: 'Vehicle Intelligence',
-    description: 'Decode a VIN and compose a clear view of vehicle identity, capabilities, and service context.',
-    href: '/products/',
+    title: 'Provenance on Every Fact',
+    description:
+      'Every data point we surface is tracked back to its source — nothing is guessed or presented as more certain than it is.',
+    href: '/about/',
   },
   {
-    title: 'Maintenance Intelligence',
-    description: 'Evaluate due, due soon, overdue, and not-applicable services from mileage and history.',
-    href: '/products/',
-  },
-  {
-    title: 'Evidence & Honesty',
-    description: 'Show why a fact is known or unknown — never invent automotive certainty.',
-    href: '/products/',
+    title: 'Honest About Unknowns',
+    description:
+      'When something isn\u2019t verified, we say so. We fail closed instead of inventing automotive certainty.',
+    href: '/about/',
     highlight: true,
   },
   {
-    title: 'Service History',
-    description: 'Capture prior work so recommendations stay grounded in what the vehicle has already received.',
-    href: '/products/',
-  },
-  {
-    title: 'Shop System Integrations',
-    description: 'Sit on top of existing shop systems — starting with Tekmetric — without replacing them.',
+    title: 'Built to Sit Alongside',
+    description:
+      'Our software integrates with the shop systems you already run — starting with Tekmetric — instead of replacing them.',
     href: '/integrations/',
   },
   {
-    title: 'Service Advisor Dashboard',
-    description: 'Give advisors one place to review decode, capabilities, maintenance, and evidence together.',
-    href: '/products/',
+    title: 'Engineered for Production',
+    description:
+      'Structured QA, CI, and review processes stand behind every release. We build software, not demos.',
+    href: '/about/',
   },
 ] as const
 
